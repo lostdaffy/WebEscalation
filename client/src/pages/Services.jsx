@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Global/Navbar";
 import Footer from "../components/Global/Footer";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -287,12 +288,12 @@ const Services = () => {
                   and stand out in the digital landscape.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-white text-cyan-600 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg">
+                  <Link to="/contact" className="px-8 py-4 bg-white text-cyan-600 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg">
                     Get Started Today
-                  </button>
-                  <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-600 transition-all transform hover:scale-105">
-                    View Portfolio
-                  </button>
+                  </Link>
+                  <Link to="/about#about" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-600 transition-all transform hover:scale-105">
+                    Know More...
+                  </Link>
                 </div>
               </div>
 

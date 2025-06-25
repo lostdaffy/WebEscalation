@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import {
   Mail,
   Phone,
@@ -48,30 +48,21 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
+              <Link to="https://www.facebook.com/profile.php?id=61577009926764">
+                <div className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                  <Facebook className="w-5 h-5" />
+                </div>
+              </Link>
+              <Link to="https://www.linkedin.com/posts/webescalation_webescalation-websitedevelopment-webdesign-activity-7340737624262791169-v_ju">
+                <div className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                  <Linkedin className="w-5 h-5" />
+                </div>
+              </Link>
+              <Link to="https://www.instagram.com/webescalation">
+                <div className="bg-cyan-600 hover:bg-cyan-700 p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                  <Instagram className="w-5 h-5" />
+                </div>
+              </Link>
             </div>
           </div>
 
@@ -83,33 +74,33 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <Code className="w-4 h-4 text-cyan-400" />
-                <a href="#" className="hover:underline">
-                  Software Development
-                </a>
+                <Link to="#">
+                  <span className="hover:underline">Software Development</span>
+                </Link>
               </li>
               <li className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <Smartphone className="w-4 h-4 text-cyan-400" />
-                <a href="#" className="hover:underline">
-                  Mobile Applications
-                </a>
+                <Link to="#">
+                  <span className="hover:underline">Mobile Applications</span>
+                </Link>
               </li>
               <li className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <Globe className="w-4 h-4 text-cyan-400" />
-                <a href="#" className="hover:underline">
-                  Web Development
-                </a>
+                <Link to="#">
+                  <span className="hover:underline">Web Development</span>
+                </Link>
               </li>
               <li className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <BarChart3 className="w-4 h-4 text-cyan-400" />
-                <a href="#" className="hover:underline">
-                  Digital Marketing
-                </a>
+                <Link to="#">
+                  <span className="hover:underline">Digital Marketing</span>
+                </Link>
               </li>
               <li className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <Code className="w-4 h-4 text-cyan-400" />
-                <a href="#" className="hover:underline">
-                  AI Solutions
-                </a>
+                <Link to="#">
+                  <span className="hover:underline">AI Solutions</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -121,37 +112,36 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="/home"
+                <Link
+                  to="/home"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 hover:underline"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 hover:underline"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/career"
+                <Link
+                  to="/career"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 hover:underline"
                 >
                   Career
-                </a>
+                </Link>
               </li>
-
               <li>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 hover:underline"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -167,15 +157,15 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-300">
-                  <p>Malhipur Road</p>
-                  <p>Saharanpur, Uttar Pradesh, 247001</p>
+                  <p>Saharanpur</p>
+                  <p>Uttar Pradesh, 247001</p>
                   <p>India</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
                 <a
-                  href="tel:+918273998875"
+                  to="tel:+918273998875"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                 >
                   +91 8273998875
@@ -184,7 +174,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
                 <a
-                  href="mailto:webescalation@gmail.com"
+                  to="mailto:webescalation@gmail.com"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                 >
                   webescalation@gmail.com
@@ -224,24 +214,24 @@ const Footer = () => {
 
             {/* Legal Links */}
             <div className="flex items-center gap-6 text-sm">
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
               >
                 Terms of Service
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
               >
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

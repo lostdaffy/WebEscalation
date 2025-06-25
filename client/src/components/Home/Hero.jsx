@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, Star, Users, Code, BarChart3, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -28,12 +29,12 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-full font-medium transition-colors duration-200">
+              <Link to="/contact" className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-full font-medium transition-colors duration-200">
                 Get Started
-              </button>
-              <button className="flex items-center gap-2 text-cyan-600 hover:text-cyan-700 px-8 py-4 font-medium transition-colors duration-200">
+              </Link>
+              <Link to="/about" className="flex items-center gap-2 text-cyan-600 hover:text-cyan-700 px-8 py-4 font-medium transition-colors duration-200">
                 Know More <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
 
             {/* Customer Reviews */}

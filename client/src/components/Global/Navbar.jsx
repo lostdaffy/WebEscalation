@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Menu,
   X,
@@ -7,7 +8,6 @@ import {
   Mail,
   Phone,
   Globe,
-  Link,
   Layout,
   Palette,
   ImageIcon,
@@ -31,24 +31,24 @@ const Navbar = () => {
   const toggleServices = () => setIsServicesOpen(!isServicesOpen);
 
   const navItems = [
-    { name: "Home", href: "/home" },
-    { name: "About", href: "/about" },
+    { name: "Home", to: "/home" },
+    { name: "About", to: "/about" },
     {
       name: "Services",
-      href: "/services",
+      to: "/services",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Website Development", href: "/services", icon: Globe },
-        { name: "Software Development", href: "/services", icon: Code },
-        { name: "Domain Registration", href: "/services", icon: Link },
-        { name: "Website Design", href: "/services", icon: Layout },
-        { name: "UI/UX Design", href: "/services", icon: Palette },
-        { name: "Graphic Design", href: "/services", icon: ImageIcon },
-        { name: "Web Hosting", href: "/services", icon: Server },
-        { name: "Professional Emails", href: "/services", icon: Mail },
+        { name: "Website Development", to: "/services", icon: Globe },
+        { name: "Software Development", to: "/services", icon: Code },
+        { name: "Domain Registration", to: "/services", icon: Link },
+        { name: "Website Design", to: "/services", icon: Layout },
+        { name: "UI/UX Design", to: "/services", icon: Palette },
+        { name: "Graphic Design", to: "/services", icon: ImageIcon },
+        { name: "Web Hosting", to: "/services", icon: Server },
+        { name: "Professional Emails", to: "/services", icon: Mail },
       ],
     },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", to: "/contact" },
   ];
 
   return (
@@ -63,24 +63,26 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-600">
-                <Code className="h-6 w-6 text-white" />
+            <Link to="/home">
+              <div className="flex items-center space-x-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-600">
+                  <Code className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-cyan-600">
+                    WebEscalation
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-cyan-600">
-                  WebEscalation
-                </span>
-              </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 {navItems.map((item) => (
                   <div key={item.name} className="relative group">
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.to}
                       className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-cyan-600 transition-colors duration-200 relative"
                       onMouseEnter={() =>
                         item.hasDropdown && setIsServicesOpen(true)
@@ -98,7 +100,7 @@ const Navbar = () => {
                         />
                       )}
                       <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full"></div>
-                    </a>
+                    </Link>
 
                     {/* Dropdown Menu */}
                     {item.hasDropdown && (
@@ -112,14 +114,14 @@ const Navbar = () => {
                         onMouseLeave={() => setIsServicesOpen(false)}
                       >
                         {item.dropdownItems?.map((dropItem) => (
-                          <a
+                          <Link
                             key={dropItem.name}
-                            href={dropItem.href}
+                            to={dropItem.to}
                             className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-cyan-600 transition-colors duration-200"
                           >
                             <dropItem.icon className="h-4 w-4" />
                             <span>{dropItem.name}</span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -131,12 +133,12 @@ const Navbar = () => {
             {/* CTA Button */}
             <div className="hidden md:block">
               <div className="flex items-center space-x-4">
-                <a href={`tel:+918273998875`}>
+                <Link to={`tel:+918273998875`}>
                   <button className="bg-cyan-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
                     <Phone className="h-4 w-4" />
                     <span>Call Now</span>
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -165,8 +167,8 @@ const Navbar = () => {
           <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/20 px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <div key={item.name}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.to}
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
                   onClick={() => !item.hasDropdown && setIsOpen(false)}
                 >
@@ -184,7 +186,7 @@ const Navbar = () => {
                       />
                     )}
                   </div>
-                </a>
+                </Link>
 
                 {/* Mobile Dropdown */}
                 {item.hasDropdown && (
@@ -196,15 +198,15 @@ const Navbar = () => {
                     } overflow-hidden`}
                   >
                     {item.dropdownItems?.map((dropItem) => (
-                      <a
+                      <Link
                         key={dropItem.name}
-                        href={dropItem.href}
+                        to={dropItem.to}
                         className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
                         onClick={() => setIsOpen(false)}
                       >
                         <dropItem.icon className="h-4 w-4" />
                         <span>{dropItem.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -213,13 +215,13 @@ const Navbar = () => {
 
             {/* Mobile CTA */}
             <div className="pt-4 border-t border-gray-200/20 space-y-3">
-              <a
-                href="tel:+1234567890"
+              <Link
+                to="tel:+1234567890"
                 className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-200"
               >
                 <Phone className="h-4 w-4" />
                 <span>+1 (234) 567-890</span>
-              </a>
+              </Link>
               <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2">
                 <Mail className="h-4 w-4" />
                 <span>Get Quote</span>

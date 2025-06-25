@@ -63,7 +63,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      info: "Malhipur Road, Saharanpur",
+      info: "Saharanpur",
       subInfo: "Uttar Pradesh, India, 247001",
     },
     {
@@ -100,7 +100,7 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white " id="contact">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -312,14 +312,7 @@ const Contact = () => {
                   Schedule a free consultation today and let's discuss how we
                   can help transform your ideas into reality.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-white text-cyan-600 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg">
-                    Schedule Consultation
-                  </button>
-                  <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-600 transition-all transform hover:scale-105">
-                    View Our Work
-                  </button>
-                </div>
+                
               </div>
 
               {/* Background Effects */}
