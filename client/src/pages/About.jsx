@@ -36,7 +36,7 @@ const About = () => {
     {
       name: "Satyaprakash",
       role: `Full Stack Developer`,
-      image: "/images/",
+      image: "/images/Satyaa.jpg",
     },
     {
       name: "Sudhir Kumar",

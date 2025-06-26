@@ -14,7 +14,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <About />
-      {/* <CoreValues /> */}
+      <CoreValues />
       <WhatWeDo />
       <Approach />
       <CallToAction />

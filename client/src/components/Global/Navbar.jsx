@@ -60,11 +60,11 @@ const Navbar = () => {
             : "bg-white/90 backdrop-blur-sm shadow-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link to="/home">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-600">
                   <Code className="h-6 w-6 text-white" />
                 </div>
@@ -78,12 +78,12 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="flex items-center space-x-6">
                 {navItems.map((item) => (
                   <div key={item.name} className="relative group">
                     <Link
                       to={item.to}
-                      className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-cyan-600 transition-colors duration-200 relative"
+                      className="flex items-center space-x-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-cyan-600 transition-colors duration-200 relative rounded-lg hover:bg-gray-50"
                       onMouseEnter={() =>
                         item.hasDropdown && setIsServicesOpen(true)
                       }
@@ -99,13 +99,13 @@ const Navbar = () => {
                           }`}
                         />
                       )}
-                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-3/4"></div>
                     </Link>
 
                     {/* Dropdown Menu */}
                     {item.hasDropdown && (
                       <div
-                        className={`absolute left-0 mt-2 w-56 rounded-xl bg-white shadow-xl border border-gray-200 py-2 transition-all duration-300 ${
+                        className={`absolute left-0 mt-1 w-64 rounded-xl bg-white shadow-xl border border-gray-200 py-2 transition-all duration-300 ${
                           isServicesOpen
                             ? "opacity-100 visible translate-y-0"
                             : "opacity-0 invisible translate-y-2"
@@ -117,7 +117,7 @@ const Navbar = () => {
                           <Link
                             key={dropItem.name}
                             to={dropItem.to}
-                            className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-cyan-600 transition-colors duration-200"
+                            className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-cyan-600 transition-colors duration-200 mx-2 rounded-lg"
                           >
                             <dropItem.icon className="h-4 w-4" />
                             <span>{dropItem.name}</span>
@@ -132,9 +132,9 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center">
                 <Link to={`tel:+918273998875`}>
-                  <button className="bg-cyan-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
+                  <button className="bg-cyan-600 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
                     <Phone className="h-4 w-4" />
                     <span>Call Now</span>
                   </button>
@@ -146,7 +146,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:text-cyan-600 hover:bg-gray-100 transition-colors duration-200"
               >
                 {isOpen ? (
                   <X className="block h-6 w-6" />
@@ -164,12 +164,12 @@ const Navbar = () => {
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/20 px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/20 px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <div key={item.name}>
                 <Link
                   to={item.to}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-cyan-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                   onClick={() => !item.hasDropdown && setIsOpen(false)}
                 >
                   <div className="flex items-center justify-between">
@@ -191,9 +191,9 @@ const Navbar = () => {
                 {/* Mobile Dropdown */}
                 {item.hasDropdown && (
                   <div
-                    className={`pl-4 space-y-1 transition-all duration-300 ${
+                    className={`ml-4 mt-2 space-y-1 transition-all duration-300 ${
                       isServicesOpen
-                        ? "max-h-40 opacity-100"
+                        ? "max-h-96 opacity-100"
                         : "max-h-0 opacity-0"
                     } overflow-hidden`}
                   >
@@ -201,7 +201,7 @@ const Navbar = () => {
                       <Link
                         key={dropItem.name}
                         to={dropItem.to}
-                        className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                        className="flex items-center space-x-3 px-4 py-2.5 text-sm text-gray-600 hover:text-cyan-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                         onClick={() => setIsOpen(false)}
                       >
                         <dropItem.icon className="h-4 w-4" />
@@ -214,18 +214,20 @@ const Navbar = () => {
             ))}
 
             {/* Mobile CTA */}
-            <div className="pt-4 border-t border-gray-200/20 space-y-3">
+            <div className="pt-4 mt-4 border-t border-gray-200/20 space-y-3">
               <Link
-                to="tel:+1234567890"
-                className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                to="tel:+918273998875"
+                className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-cyan-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
               >
                 <Phone className="h-4 w-4" />
-                <span>+1 (234) 567-890</span>
+                <span>+91 8273998875</span>
               </Link>
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>Get Quote</span>
-              </button>
+              <Link to={`tel:+918273998875`}>
+                <button className="w-full bg-cyan-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <span>Call Now</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
