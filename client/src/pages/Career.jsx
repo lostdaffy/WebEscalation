@@ -19,7 +19,7 @@ const Career = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
         {/* Hero Section */}
-        <div className="max-w-7xl mx-auto py-20 px-6">
+        <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8">
             {/* Brand tagline */}
             <div className="text-sm uppercase tracking-wider text-gray-600 font-medium">
@@ -29,7 +29,7 @@ const Career = () => {
             {/* Main heading */}
             <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
               Build Your Career With{" "}
-              <span className="text-cyan-600">Innovation</span>
+              <span className="text-cyan-500">Innovation</span>
             </h1>
 
             {/* Description */}
@@ -45,7 +45,7 @@ const Career = () => {
         <div className="max-w-4xl mx-auto px-6 mb-16">
           <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl p-8 text-center">
             <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="w-8 h-8 text-cyan-600" />
+              <Users className="w-8 h-8 text-cyan-500" />
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-4">
               Not Currently Hiring
@@ -79,7 +79,7 @@ const Career = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                <Code className="w-6 h-6 text-cyan-600" />
+                <Code className="w-6 h-6 text-cyan-500" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
                 Cutting-Edge Tech
@@ -92,7 +92,7 @@ const Career = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                <Heart className="w-6 h-6 text-cyan-600" />
+                <Heart className="w-6 h-6 text-cyan-500" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
                 Work-Life Balance
@@ -105,7 +105,7 @@ const Career = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                <Award className="w-6 h-6 text-cyan-600" />
+                <Award className="w-6 h-6 text-cyan-500" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
                 Growth Opportunities
@@ -118,7 +118,7 @@ const Career = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                <Coffee className="w-6 h-6 text-cyan-600" />
+                <Coffee className="w-6 h-6 text-cyan-500" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
                 Great Culture
@@ -182,7 +182,7 @@ const Career = () => {
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   {role.title}
                 </h3>
-                <div className="text-sm text-cyan-600 font-medium mb-3">
+                <div className="text-sm text-cyan-500 font-medium mb-3">
                   {role.level} Level
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -205,7 +205,7 @@ const Career = () => {
 
         {/* Contact Section */}
         <div className="max-w-4xl mx-auto px-6 mb-16">
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-8 text-center text-white">
+          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 text-center text-white">
             <Mail className="w-16 h-16 mx-auto mb-6 opacity-90" />
             <h2 className="text-3xl font-bold mb-4">Stay Connected</h2>
             <p className="text-cyan-100 text-lg mb-8">
@@ -213,10 +213,10 @@ const Career = () => {
               opportunity comes up!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-4 rounded-full font-medium transition-colors duration-200">
+              <button className="bg-white text-cyan-500 hover:bg-gray-50 px-8 py-4 rounded-full font-medium transition-colors duration-200">
                 Send Your Resume
               </button>
-              <button className="flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 rounded-full font-medium transition-colors duration-200">
+              <button className="flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-cyan-500 px-8 py-4 rounded-full font-medium transition-colors duration-200">
                 View Our Work <ArrowRight className="w-4 h-4" />
               </button>
             </div>

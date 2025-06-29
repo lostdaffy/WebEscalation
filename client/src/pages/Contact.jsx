@@ -103,14 +103,14 @@ const Contact = () => {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white " id="contact">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-24">
             <div className="text-center">
               <div className="text-sm uppercase tracking-wider text-gray-600 font-medium mb-4">
                 GET IN TOUCH WITH US
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
                 Let's Start a{" "}
-                <span className="text-cyan-600">Conversation</span>
+                <span className="text-cyan-500">Conversation</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Ready to transform your ideas into reality? We're here to help
@@ -252,7 +252,7 @@ const Contact = () => {
 
                   <button
                     onClick={handleSubmit}
-                    className="w-full bg-gradient-to-r from-cyan-600 to-cyan-700 text-white py-4 px-8 rounded-full font-semibold hover:from-cyan-700 hover:to-cyan-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-cyan-700 text-white py-4 px-8 rounded-full font-semibold hover:from-cyan-700 hover:to-cyan-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
                     Send Message
@@ -282,14 +282,14 @@ const Contact = () => {
                     className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-lg group"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
+                      <div className="p-3 bg-gradient-to-r from-cyan-500 to-cyan-500 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
                         {item.icon}
                       </div>
                       <div>
                         <h3 className="font-semibold text-slate-800 mb-1">
                           {item.title}
                         </h3>
-                        <p className="text-cyan-600 font-medium mb-1">
+                        <p className="text-cyan-500 font-medium mb-1">
                           {item.info}
                         </p>
                         <p className="text-gray-500 text-sm">{item.subInfo}</p>
@@ -303,7 +303,7 @@ const Contact = () => {
 
           {/* CTA Section */}
           <div className="mt-24 text-center">
-            <div className="bg-gradient-to-r from-cyan-600 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Ready to Get Started?

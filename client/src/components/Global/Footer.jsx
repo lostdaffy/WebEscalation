@@ -19,11 +19,11 @@ const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-10 right-4 sm:top-20 sm:right-20 text-cyan-600 opacity-20">
+      <div className="absolute top-10 right-4 sm:top-20 sm:right-20 text-cyan-500 opacity-20">
         <div className="flex space-x-2">
-          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-600 rotate-45"></div>
-          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-600 rotate-45"></div>
-          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-600 rotate-45"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-500 rotate-45"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-500 rotate-45"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-500 rotate-45"></div>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="bg-cyan-600 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                <div className="bg-cyan-500 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
                   <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </Link>
@@ -61,7 +61,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="bg-cyan-600 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                <div className="bg-cyan-500 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
                   <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="bg-cyan-600 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
+                <div className="bg-cyan-500 hover:bg-cyan-700 p-2 sm:p-3 rounded-full transition-colors duration-200 cursor-pointer">
                   <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </Link>
@@ -207,7 +207,7 @@ const Footer = () => {
                   placeholder="Enter your email"
                   className="flex-1 bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400"
                 />
-                <button className="bg-cyan-600 hover:bg-cyan-700 p-2 rounded-lg transition-colors duration-200 self-center sm:self-auto">
+                <button className="bg-cyan-500 hover:bg-cyan-700 p-2 rounded-lg transition-colors duration-200 self-center sm:self-auto">
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </button>
               </div>

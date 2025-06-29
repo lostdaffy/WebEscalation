@@ -25,10 +25,10 @@ const Services = () => {
       description:
         "Comprehensive digital solutions to build your online presence.",
       icon: <Globe className="w-8 h-8" />,
-      color: "from-cyan-500 to-cyan-600",
+      color: "from-cyan-500 to-cyan-500",
       bgColor: "bg-cyan-50",
       borderColor: "border-cyan-200",
-      textColor: "text-cyan-600",
+      textColor: "text-cyan-500",
       subServices: [
         {
           id: 1.1,
@@ -107,10 +107,10 @@ const Services = () => {
       description:
         "Create a strong visual identity for your brand across print and digital platforms.",
       icon: <Palette className="w-8 h-8" />,
-      color: "from-cyan-500 to-cyan-600",
+      color: "from-cyan-500 to-cyan-500",
       bgColor: "bg-cyan-50",
       borderColor: "border-cyan-200",
-      textColor: "text-cyan-600",
+      textColor: "text-cyan-500",
       subServices: [
         {
           id: 3.1,
@@ -184,7 +184,7 @@ const Services = () => {
                 COMPREHENSIVE DIGITAL SOLUTIONS
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-                Our <span className="text-cyan-600">Services</span>
+                Our <span className="text-cyan-500">Services</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Transform your business with our comprehensive digital solutions
@@ -253,7 +253,7 @@ const Services = () => {
                             {subService.icon}
                           </div>
                           <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-cyan-600 transition-colors">
+                            <h4 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-cyan-500 transition-colors">
                               {subService.title}
                             </h4>
                             <p className="text-gray-600 text-sm leading-relaxed">
@@ -264,7 +264,7 @@ const Services = () => {
 
                         {/* Hover effect */}
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <button className="text-cyan-600 text-sm font-medium hover:text-cyan-700 transition-colors">
+                          <button className="text-cyan-500 text-sm font-medium hover:text-cyan-700 transition-colors">
                             Learn More →
                           </button>
                         </div>
@@ -278,7 +278,7 @@ const Services = () => {
 
           {/* Call to Action */}
           <div className="mt-24 text-center">
-            <div className="bg-gradient-to-r from-cyan-600 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Ready to Transform Your Business?
@@ -288,10 +288,16 @@ const Services = () => {
                   and stand out in the digital landscape.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/contact" className="px-8 py-4 bg-white text-cyan-600 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg">
+                  <Link
+                    to="/contact"
+                    className="px-8 py-4 bg-white text-cyan-500 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg"
+                  >
                     Get Started Today
                   </Link>
-                  <Link to="/about#about" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-600 transition-all transform hover:scale-105">
+                  <Link
+                    to="/about#about"
+                    className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-500 transition-all transform hover:scale-105"
+                  >
                     Know More...
                   </Link>
                 </div>

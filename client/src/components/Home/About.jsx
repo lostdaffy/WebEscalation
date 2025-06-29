@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div>
       <section className="min-h-screen bg-gradient-to-br from-slate-100 to-white flex items-center py-12 sm:py-16 lg:py-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
@@ -14,7 +14,7 @@ const About = () => {
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
                 We Build Digital Solutions That{" "}
-                <span className="text-cyan-600">Make a Difference</span>
+                <span className="text-cyan-500">Make a Difference</span>
               </h2>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Founded with a vision to bridge the gap between innovative
@@ -105,7 +105,7 @@ const About = () => {
 
               {/* Side Accent */}
               <div className="absolute top-1/2 -right-1 sm:-right-1.5 lg:-right-2 transform -translate-y-1/2">
-                <div className="w-2 sm:w-3 lg:w-4 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-cyan-500 to-cyan-600 rounded-full shadow-lg"></div>
+                <div className="w-2 sm:w-3 lg:w-4 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-cyan-500 to-cyan-500 rounded-full shadow-lg"></div>
               </div>
             </div>
           </div>

@@ -64,14 +64,14 @@ const About = () => {
         id="about"
       >
         {/* Hero Section */}
-        <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8" >
           <div className="text-center mb-16">
             <div className="text-sm uppercase tracking-wider text-gray-600 font-medium mb-6">
               ABOUT OUR COMPANY
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
               We Build Digital Solutions{" "}
-              <span className="text-cyan-600">That Make a Difference</span>
+              <span className="text-cyan-500">That Make a Difference</span>
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
               Founded with a vision to bridge the gap between innovative
@@ -89,7 +89,7 @@ const About = () => {
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
                 Building Success Through{" "}
-                <span className="text-cyan-600">Innovation</span>
+                <span className="text-cyan-500">Innovation</span>
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
@@ -125,7 +125,7 @@ const About = () => {
                 WHAT DRIVES US
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4">
-                Our Core <span className="text-cyan-600">Values</span>
+                Our Core <span className="text-cyan-500">Values</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 These principles guide every decision we make and every solution
@@ -139,7 +139,7 @@ const About = () => {
                   key={index}
                   className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"
                 >
-                  <div className="text-cyan-600 mb-4">{value.icon}</div>
+                  <div className="text-cyan-500 mb-4">{value.icon}</div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3">
                     {value.title}
                   </h3>
@@ -159,7 +159,7 @@ const About = () => {
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4">
                 The People Behind{" "}
-                <span className="text-cyan-600">Your Success</span>
+                <span className="text-cyan-500">Your Success</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Our diverse team of experts brings together years of experience
@@ -183,14 +183,14 @@ const About = () => {
                   <h3 className="text-xl font-bold text-slate-800 mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-cyan-600 font-medium">{member.role}</p>
+                  <p className="text-cyan-500 font-medium">{member.role}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Mission Section */}
-          <div className="bg-gradient-to-r from-cyan-600 to-slate-700 rounded-3xl p-12 text-center text-white mb-20">
+          <div className="bg-gradient-to-r from-cyan-500 to-slate-700 rounded-3xl p-12 text-center text-white mb-20">
             <Globe className="w-16 h-16 mx-auto mb-6 opacity-90" />
             <div className="text-sm uppercase tracking-wider text-cyan-100 font-medium mb-4">
               OUR MISSION
@@ -212,7 +212,7 @@ const About = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
               Let's Build Something{" "}
-              <span className="text-cyan-600">Amazing Together</span>
+              <span className="text-cyan-500">Amazing Together</span>
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your ideas into innovative solutions? Let's
@@ -221,7 +221,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-full font-medium transition-colors duration-200 "
+                className="bg-cyan-500 hover:bg-cyan-700 text-white px-8 py-4 rounded-full font-medium transition-colors duration-200 "
               >
                 Schedule a Call
               </Link>
