@@ -16,37 +16,29 @@ import Navbar from "../components/Global/Navbar";
 import Footer from "../components/Global/Footer";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const [result, setResult] = React.useState("");
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending...");
+    const formData = new FormData(event.target);
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    formData.append("access_key", "48ab3e6c-7cec-47a0-a1ee-baedf022d227");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
     });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 3000);
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.error("Error", data);
+      setResult(data.message || "Something went wrong");
+    }
   };
 
   const contactInfo = [
@@ -248,17 +240,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="text-gray-600">
-                    Thank you for contacting us. We'll get back to you soon.
-                  </p>
-                </div>
-              ) : (
+              <form onSubmit={onSubmit}>
                 <div className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -270,8 +252,6 @@ const Contact = () => {
                         <input
                           type="text"
                           name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
                           required
                           className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                           placeholder="Your Full Name"
@@ -288,8 +268,6 @@ const Contact = () => {
                         <input
                           type="email"
                           name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
                           required
                           className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                           placeholder="your@email.com"
@@ -308,8 +286,7 @@ const Contact = () => {
                         <input
                           type="tel"
                           name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
+                          required
                           className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                           placeholder="+91 1234567890"
                         />
@@ -323,10 +300,9 @@ const Contact = () => {
                       <div className="relative">
                         <Pin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                         <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
+                          type="text"
+                          name="city"
+                          required
                           className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                           placeholder="Your City"
                         />
@@ -342,8 +318,6 @@ const Contact = () => {
                       <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                       <textarea
                         name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
                         required
                         rows={6}
                         className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors resize-none"
@@ -353,14 +327,16 @@ const Contact = () => {
                   </div>
 
                   <button
-                    onClick={handleSubmit}
+                    type="submit"
                     className="w-full bg-gradient-to-r from-cyan-500 to-cyan-700 text-white py-4 px-8 rounded-full font-semibold hover:from-cyan-700 hover:to-cyan-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
                     Send Message
                   </button>
+
+                  <span className="text-sm text-gray-600">{result}</span>
                 </div>
-              )}
+              </form>
             </div>
 
             {/* Contact Information */}
