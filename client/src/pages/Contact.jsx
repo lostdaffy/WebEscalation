@@ -9,6 +9,8 @@ import {
   MessageSquare,
   Star,
   CheckCircle,
+  Pin,
+  Globe,
 } from "lucide-react";
 import Navbar from "../components/Global/Navbar";
 import Footer from "../components/Global/Footer";
@@ -49,22 +51,22 @@ const Contact = () => {
 
   const contactInfo = [
     {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Call Us (Saharanpur Office)",
+      info: "+91 8273998875",
+      subInfo: "Uttar Pradesh, India, 247001",
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Call Us (Patna Office)",
+      info: "+91 9060044717",
+      subInfo: "Bihar, India, 80020",
+    },
+    {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       info: "webescalation@gmail.com",
       subInfo: "We'll respond within 24 hours",
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      info: "+91 8273998875",
-      subInfo: "Mon-Fri 9AM-6PM EST",
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Us",
-      info: "Saharanpur",
-      subInfo: "Uttar Pradesh, India, 247001",
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -100,7 +102,7 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white " id="contact">
+      <div className=" bg-gradient-to-br from-slate-50 to-white " id="contact">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-24">
@@ -124,9 +126,115 @@ const Contact = () => {
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-slate-100 rounded-full animate-pulse delay-1000" />
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-cyan-50 rounded-full animate-pulse delay-500" />
         </div>
+      </div>
 
-        {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Contact */}
+      <div className="min-h-screen ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Contact Cards - 2 columns on large screens */}
+            <div className="lg:col-span-2">
+              <div className="grid md:grid-cols-2 gap-6">
+                {contactInfo.map((item, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-cyan-500 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                  >
+                    {/* Background decoration */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                          {item.icon}
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-900 group-hover:text-cyan-500 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-cyan-500 font-semibold text-lg mb-2">
+                        {item.info}
+                      </p>
+                      <p className="text-slate-500">{item.subInfo}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Card */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-6">
+                <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-8 text-white shadow-2xl">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Phone className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">
+                      Ready to Connect?
+                    </h3>
+                    <p className="text-cyan-100 mb-8 leading-relaxed">
+                      Let's discuss your project and explore how we can bring
+                      your vision to life.
+                    </p>
+                    <button className="w-full bg-white text-cyan-500 font-semibold py-4 px-6 rounded-xl hover:bg-slate-50 transition-colors duration-300 hover:shadow-lg">
+                      Schedule a Call
+                    </button>
+                    <div className="mt-6 pt-6 border-t border-cyan-400/30">
+                      <p className="text-cyan-100 text-sm">
+                        Or send us a message and we'll get back to you within 24
+                        hours
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom section with additional info */}
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-6 h-6 text-cyan-500" />
+              </div>
+              <h4 className="font-semibold text-slate-900 mb-2">
+                Quick Response
+              </h4>
+              <p className="text-slate-600 text-sm">
+                Average response time under 2 hours
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-cyan-500" />
+              </div>
+              <h4 className="font-semibold text-slate-900 mb-2">
+                24/7 Support
+              </h4>
+              <p className="text-slate-600 text-sm">
+                Emergency support available anytime
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-6 h-6 text-cyan-500" />
+              </div>
+              <h4 className="font-semibold text-slate-900 mb-2">
+                Global Reach
+              </h4>
+              <p className="text-slate-600 text-sm">
+                Serving clients worldwide
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Get in touch */}
+      <div className="max-h-screen">
+        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Contact Form */}
             <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-lg">
@@ -151,7 +259,7 @@ const Contact = () => {
                   </p>
                 </div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -165,8 +273,8 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="Your full name"
+                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
+                          placeholder="Your Full Name"
                         />
                       </div>
                     </div>
@@ -183,7 +291,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
+                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -193,7 +301,7 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
+                        Phone Number *
                       </label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -202,39 +310,33 @@ const Contact = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="+1 (555) 123-4567"
+                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
+                          placeholder="+91 1234567890"
                         />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Subject *
+                        City *
                       </label>
-                      <select
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                      >
-                        <option value="">Select a subject</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="mobile-app">
-                          Mobile App Development
-                        </option>
-                        <option value="design">Design Services</option>
-                        <option value="consultation">Free Consultation</option>
-                        <option value="support">Support</option>
-                        <option value="other">Other</option>
-                      </select>
+                      <div className="relative">
+                        <Pin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
+                          placeholder="Your City"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                      Message
                     </label>
                     <div className="relative">
                       <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -244,7 +346,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors resize-none"
+                        className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors resize-none"
                         placeholder="Tell us about your project..."
                       />
                     </div>
@@ -262,7 +364,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-8 self-center">
               <div>
                 <h2 className="text-3xl font-bold text-slate-800 mb-6">
                   Get in Touch
@@ -274,52 +376,33 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Contact Info Cards */}
-              <div className="grid gap-6">
-                {contactInfo.map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-cyan-200 transition-all duration-300 hover:shadow-lg group"
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-gradient-to-r from-cyan-500 to-cyan-500 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-slate-800 mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-cyan-500 font-medium mb-1">
-                          {item.info}
-                        </p>
-                        <p className="text-gray-500 text-sm">{item.subInfo}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div>
+                <img
+                  src="/images/2148924723.webp"
+                  className="w-full rounded-2xl"
+                  alt=""
+                />
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* CTA Section */}
-          <div className="mt-24 text-center">
-            <div className="bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to Get Started?
-                </h3>
-                <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
-                  Schedule a free consultation today and let's discuss how we
-                  can help transform your ideas into reality.
-                </p>
-                
-              </div>
-
-              {/* Background Effects */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
-            </div>
+      {/* Mission Section */}
+      <div className="max-w-7xl mx-auto py-20">
+        <div className="bg-gradient-to-r from-cyan-500 to-slate-700 rounded-3xl p-12 text-center text-white">
+          <Globe className="w-16 h-16 mx-auto mb-6 opacity-90" />
+          <div className="text-sm uppercase tracking-wider text-cyan-100 font-medium mb-4">
+            OUR MISSION
           </div>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            Empowering Business Through Innovation
+          </h2>
+          <p className="text-xl leading-relaxed max-w-4xl mx-auto text-cyan-50">
+            To empower businesses through innovative technology solutions that
+            drive growth, enhance efficiency, and create exceptional user
+            experiences.
+          </p>
         </div>
       </div>
       <Footer />

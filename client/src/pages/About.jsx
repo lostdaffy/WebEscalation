@@ -110,7 +110,7 @@ const About = () => {
             <div className="relative">
               <div className="">
                 <img
-                  src="/images/77654.jpg"
+                  src="/images/2149151168.webp"
                   className="w-full rounded-2xl"
                   alt=""
                 />

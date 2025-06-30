@@ -39,7 +39,7 @@ const About = () => {
               {/* Main Image Container */}
               <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                 <img
-                  src="/images/2150169847.jpg"
+                  src="/images/2150169847.webp"
                   alt="User Experience Interface Design - Software Development"
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[600px] object-cover"
                   onError={(e) => {
@@ -97,15 +97,6 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 sm:-top-6 lg:-top-8 -right-4 sm:-right-6 lg:-right-8 w-16 sm:w-24 lg:w-32 h-16 sm:h-24 lg:h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full opacity-20 blur-2xl"></div>
-              <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 -left-4 sm:-left-6 lg:-left-8 w-12 sm:w-18 lg:w-24 h-12 sm:h-18 lg:h-24 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 blur-2xl"></div>
-
-              {/* Side Accent */}
-              <div className="absolute top-1/2 -right-1 sm:-right-1.5 lg:-right-2 transform -translate-y-1/2">
-                <div className="w-2 sm:w-3 lg:w-4 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-cyan-500 to-cyan-500 rounded-full shadow-lg"></div>
               </div>
             </div>
           </div>

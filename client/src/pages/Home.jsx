@@ -13,10 +13,10 @@ const Home = () => {
     <div className="w-full h-full">
       <Navbar />
       <Hero />
-      <About />
-      <CoreValues />
       <WhatWeDo />
       <Approach />
+      <CoreValues />
+      <About />
       <CallToAction />
       <Footer />
     </div>

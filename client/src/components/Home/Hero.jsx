@@ -104,7 +104,7 @@ const Hero = () => {
               {/* Hero Image Area */}
               <div className="">
                 <img
-                  src="/images/9876473.jpg"
+                  src="/images/9876473.webp"
                   alt="WebEscalation Digital Services"
                 />
               </div>
