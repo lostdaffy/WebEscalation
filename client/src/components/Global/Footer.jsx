@@ -179,7 +179,16 @@ const Footer = () => {
                   to="tel:+918273998875"
                   className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                 >
-                  +91 8273998875
+                  +91 8273998875 (Saharanpur)
+                </Link>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 flex-shrink-0" />
+                <Link
+                  to="tel:+919060044717"
+                  className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                >
+                  +91 9060044717 <br /> (Patna, Bihar Office)
                 </Link>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
@@ -193,25 +202,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Newsletter Signup */}
-            <div className="bg-slate-800 rounded-lg p-3 sm:p-4">
-              <h5 className="font-semibold text-cyan-400 mb-2 text-sm sm:text-base">
-                Stay Updated
-              </h5>
-              <p className="text-xs sm:text-sm text-gray-400 mb-3">
-                Get latest updates and industry insights
-              </p>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400"
-                />
-                <button className="bg-cyan-500 hover:bg-cyan-700 p-2 rounded-lg transition-colors duration-200 self-center sm:self-auto">
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                </button>
-              </div>
-            </div>
+           
           </div>
         </div>
 
