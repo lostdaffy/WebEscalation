@@ -82,10 +82,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20"
-          : "bg-white/90 backdrop-blur-sm shadow-sm"
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-transprent "
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
@@ -102,7 +102,7 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <Link
                     to={item.to}
-                    className="flex items-center space-x-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-cyan-500 transition-colors duration-200 relative rounded-lg hover:bg-gray-50"
+                    className="flex items-center space-x-1 px-4 py-2 text-sm text-gray-700 hover:text-cyan-500 transition-colors duration-200 relative rounded-lg hover:bg-gray-50"
                     onMouseEnter={() =>
                       item.hasDropdown && setOpenDropdown(item.name)
                     }
@@ -152,7 +152,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a href="tel:+918273998875">
-              <button className="bg-cyan-500 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
+              <button className="border-1 border-gray-500 text-gray-500 px-6 py-1.5 rounded-full  hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>
               </button>
