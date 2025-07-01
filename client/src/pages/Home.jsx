@@ -7,19 +7,17 @@ import WhatWeDo from "../components/Home/WhatWeDo";
 import Approach from "../components/Home/Approach";
 import CoreValues from "../components/Home/CoreValues";
 import CallToAction from "../components/Home/CallToAction";
-import AncientTravelSite from "../components/Home/Services";
 
 const Home = () => {
   return (
     <div className="w-full h-full">
       <Navbar />
       <Hero />
-      <AncientTravelSite />
-      {/* <WhatWeDo />
+      <WhatWeDo />
       <Approach />
       <CoreValues />
       <About />
-      <CallToAction /> */}
+      <CallToAction /> 
       <Footer />
     </div>
   );

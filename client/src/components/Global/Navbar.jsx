@@ -241,7 +241,7 @@ const Navbar = () => {
               <span>+91 8273998875</span>
             </a>
             <a href="tel:+918273998875">
-              <button className="w-full bg-cyan-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+              <button className="w-full border-1 border-gray-500 text-gray-500 px-6 py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>
               </button>
