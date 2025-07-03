@@ -102,7 +102,7 @@ const Hero = () => {
               style={{ animationDelay: "1.2s" }}
             >
               <Link
-                to="/services"
+                to="/about"
                 className="w-full sm:w-auto bg-cyan-500 text-white px-6 sm:px-8 lg:px-10 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium hover:bg-cyan-600 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-200"
               >
                 Learn More About Us
