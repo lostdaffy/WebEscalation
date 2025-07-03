@@ -2,22 +2,22 @@ import React from "react";
 import Hero from "../components/Home/Hero";
 import Footer from "../components/Global/Footer";
 import Navbar from "../components/Global/Navbar";
-import About from "../components/Home/About";
+import OurMission from "../components/Home/OurMission";
 import WhatWeDo from "../components/Home/WhatWeDo";
-import Approach from "../components/Home/Approach";
-import CoreValues from "../components/Home/CoreValues";
-import CallToAction from "../components/Home/CallToAction";
+import WhyChooseUs from "../components/Home/WhyChooseUs";
+import ContactForm from "../components/Home/ContactForm";
+import HowWeWork from "../components/Home/HowWeWork";
 
 const Home = () => {
   return (
     <div className="w-full h-full">
-      <Navbar />
+      <Navbar /> 
       <Hero />
       <WhatWeDo />
-      <Approach />
-      <CoreValues />
-      <About />
-      <CallToAction /> 
+      <HowWeWork/>
+      <WhyChooseUs />
+      <OurMission />
+      <ContactForm /> 
       <Footer />
     </div>
   );

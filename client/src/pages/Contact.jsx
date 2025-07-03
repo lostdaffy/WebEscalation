@@ -1,44 +1,106 @@
-import React, { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-  User,
-  MessageSquare,
-  Star,
-  CheckCircle,
-  Pin,
-  Globe,
-} from "lucide-react";
+import React, { useRef, useState, useEffect } from "react";
+import { Mail, Phone, MapPin, Clock, Send, Globe } from "lucide-react";
 import Navbar from "../components/Global/Navbar";
 import Footer from "../components/Global/Footer";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [charCount, setCharCount] = useState(0);
+  const [isVisible, setIsVisible] = useState({
+    header: false,
+    contactInfo: false,
+    form: false,
+    image: false,
+  });
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Sending...");
-    const formData = new FormData(event.target);
+  const headerRef = useRef(null);
+  const contactInfoRef = useRef(null);
+  const formRef = useRef(null);
+  const imageRef = useRef(null);
 
-    formData.append("access_key", "48ab3e6c-7cec-47a0-a1ee-baedf022d227");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            if (target === headerRef.current) {
+              setIsVisible((prev) => ({ ...prev, header: true }));
+            } else if (target === contactInfoRef.current) {
+              setIsVisible((prev) => ({ ...prev, contactInfo: true }));
+            } else if (target === formRef.current) {
+              setIsVisible((prev) => ({ ...prev, form: true }));
+            } else if (target === imageRef.current) {
+              setIsVisible((prev) => ({ ...prev, image: true }));
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (contactInfoRef.current) observer.observe(contactInfoRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+    if (imageRef.current) observer.observe(imageRef.current);
 
-    const data = await response.json();
+    return () => observer.disconnect();
+  }, []);
 
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      console.error("Error", data);
-      setResult(data.message || "Something went wrong");
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    if (name === "message") {
+      setCharCount(value.length);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const payload = {
+      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227", // Replace this with your real access key
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Thank you! Your message has been sent.");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setCharCount(0);
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("There was an error submitting the form.");
+    }
+
+    setIsSubmitting(false);
   };
 
   const contactInfo = [
@@ -65,29 +127,6 @@ const Contact = () => {
       title: "Business Hours",
       info: "Mon-Fri: 9AM-6PM",
       subInfo: "Weekend: By appointment",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart",
-      message:
-        "Exceptional service and quick response times. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Mike Chen",
-      role: "Founder, DesignCo",
-      message: "Professional team that delivers exactly what they promise.",
-      rating: 5,
-    },
-    {
-      name: "Emma Wilson",
-      role: "Marketing Director",
-      message:
-        "Great communication and outstanding results. Will work with them again!",
-      rating: 5,
     },
   ];
 
@@ -224,141 +263,176 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Get in touch */}
-      <div className="max-h-screen">
-        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Contact Form */}
-            <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-lg">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-slate-800 mb-4">
-                  Send us a Message
-                </h2>
-                <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you as soon as
-                  possible.
+      <div className="min-h-screen py-4 sm:py-6 md:py-8 px-4">
+        <div className="max-w-6xl mx-auto bg-gray-50 p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 rounded-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+            {/* Left Column - Contact Info */}
+            <div className="space-y-6 sm:space-y-8">
+              <div
+                ref={headerRef}
+                className={`transition-all duration-1000 ${
+                  isVisible.header
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+              >
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6">
+                  Start a Conversation
+                </h1>
+                <p className="text-gray-600 text-base sm:text-lg mb-4">
+                  Whether you're a startup or an established business, let's
+                  chat about boosting your digital presence.
                 </p>
               </div>
 
-              <form onSubmit={onSubmit}>
-                <div className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="Your Full Name"
-                        />
-                      </div>
+              <div
+                ref={contactInfoRef}
+                className={`transition-all duration-1000 delay-300 ${
+                  isVisible.contactInfo
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+              >
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                      <Phone className="w-3 h-3 text-cyan-500" />
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
+                    <p className="text-gray-900 text-sm font-semibold">
+                      +91 8273998875
+                    </p>
                   </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                      <Phone className="w-3 h-3 text-cyan-500" />
+                    </div>
+                    <p className="text-gray-900 text-sm font-semibold break-all sm:break-normal">
+                      webescalation@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
+              <div
+                ref={imageRef}
+                className={`transition-all duration-1000 delay-500 ${
+                  isVisible.image
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+              >
+                <img
+                  src="/images/2148924723.webp"
+                  className="w-full rounded-2xl"
+                  alt="contact"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="lg:pl-8">
+              <form
+                onSubmit={handleSubmit}
+                ref={formRef}
+                className={`bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 transition-all duration-1000 delay-700 ${
+                  isVisible.form
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+              >
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8">
+                  Send us a message
+                </h2>
+
+                <div className="space-y-4">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                    <div className="flex-1">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number *
+                        Name
                       </label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          required
-                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="+91 1234567890"
-                        />
-                      </div>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                        placeholder="Your name"
+                      />
                     </div>
 
-                    <div>
+                    <div className="flex-1">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        City *
+                        Phone
                       </label>
-                      <div className="relative">
-                        <Pin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                        <input
-                          type="text"
-                          name="city"
-                          required
-                          className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
-                          placeholder="Your City"
-                        />
-                      </div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                        placeholder="+91 12345 67890"
+                      />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
+                      Email
                     </label>
-                    <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                      <textarea
-                        name="message"
-                        required
-                        rows={6}
-                        className="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors resize-none"
-                        placeholder="Tell us about your project..."
-                      />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="block text-sm font-medium text-gray-700">
+                        Message
+                      </label>
+                      <span className="text-sm text-gray-500">
+                        {charCount}/150
+                      </span>
                     </div>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={5}
+                      maxLength={150}
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 resize-none text-gray-900"
+                      placeholder="Tell us about your project requirements..."
+                    />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-500 to-cyan-700 text-white py-4 px-8 rounded-full font-semibold hover:from-cyan-700 hover:to-cyan-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className={`w-full bg-cyan-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2 ${
+                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
                   >
-                    <Send className="w-5 h-5" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send className="w-5 h-5" />
+                      </>
+                    )}
                   </button>
-
-                  <span className="text-sm text-gray-600">{result}</span>
                 </div>
               </form>
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-8 self-center">
-              <div>
-                <h2 className="text-3xl font-bold text-slate-800 mb-6">
-                  Get in Touch
-                </h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  We're here to help bring your vision to life. Whether you have
-                  a question about our services, need a quote, or want to
-                  discuss your next project, we'd love to hear from you.
-                </p>
-              </div>
-
-              <div>
-                <img
-                  src="/images/2148924723.webp"
-                  className="w-full rounded-2xl"
-                  alt=""
-                />
-              </div>
             </div>
           </div>
         </div>

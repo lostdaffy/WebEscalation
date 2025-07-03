@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -100,12 +101,15 @@ const Hero = () => {
               }`}
               style={{ animationDelay: "1.2s" }}
             >
-              <button className="w-full sm:w-auto bg-cyan-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-sm sm:text-base rounded-full font-medium hover:bg-cyan-600 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-200">
+              <Link
+                to="/services"
+                className="w-full sm:w-auto bg-cyan-500 text-white px-6 sm:px-8 lg:px-10 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium hover:bg-cyan-600 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-200"
+              >
                 Learn More About Us
-              </button>
-              <button className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-sm sm:text-base rounded-full font-medium hover:border-cyan-500 hover:text-cyan-500 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-200">
-                View Our Work
-              </button>
+              </Link>
+              <Link to="/contact" className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-6 sm:px-8 lg:px-10 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium hover:border-cyan-500 hover:text-cyan-500 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-200">
+                Contact us
+              </Link>
             </div>
           </div>
         </div>

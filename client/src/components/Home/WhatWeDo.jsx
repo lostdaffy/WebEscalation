@@ -10,7 +10,7 @@ const WhatWeDo = () => {
     card: false,
     mainImage: false,
     services: false,
-    circular: false
+    circular: false,
   });
   const componentRef = useRef(null);
 
@@ -19,11 +19,11 @@ const WhatWeDo = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const elementClass = entry.target.getAttribute('data-animate');
+            const elementClass = entry.target.getAttribute("data-animate");
             if (elementClass) {
-              setAnimatedElements(prev => ({
+              setAnimatedElements((prev) => ({
                 ...prev,
-                [elementClass]: true
+                [elementClass]: true,
               }));
             }
             setIsVisible(true);
@@ -32,13 +32,14 @@ const WhatWeDo = () => {
       },
       {
         threshold: 0.1,
-        rootMargin: '-50px'
+        rootMargin: "-50px",
       }
     );
 
     // Observe all elements with data-animate attribute
-    const elementsToObserve = componentRef.current?.querySelectorAll('[data-animate]');
-    elementsToObserve?.forEach(el => observer.observe(el));
+    const elementsToObserve =
+      componentRef.current?.querySelectorAll("[data-animate]");
+    elementsToObserve?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -47,45 +48,79 @@ const WhatWeDo = () => {
     { title: "Website Development", image: "/images/19428.webp", delay: "0s" },
     { title: "Web Design", image: "/images/44658.webp", delay: "0.1s" },
     { title: "UI/UX Design", image: "/images/119354.webp", delay: "0.2s" },
-    { title: "Web Hosting", image: "/images/123730.webp", delay: "0.3s" }
+    { title: "Web Hosting", image: "/images/123730.webp", delay: "0.3s" },
   ];
 
   return (
-    <div className="min-h-screen py-12 sm:py-16 lg:py-20 overflow-hidden" ref={componentRef}>
+    <div
+      className="min-h-screen py-12 sm:py-16 lg:py-20 overflow-hidden"
+      ref={componentRef}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left Column - Content */}
           <div className="w-full lg:flex-1 lg:max-w-md order-2 lg:order-1">
             {/* Main Title */}
             <div className="mb-6 lg:mb-8">
-              <h1 
+              <h1
                 data-animate="title"
                 className={`text-3xl sm:text-4xl lg:text-5xl font-light leading-tight mb-4 lg:mb-6 transform transition-all duration-1000 ${
-                  animatedElements.title ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  animatedElements.title
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
                 }`}
-                style={{ transitionDelay: '0.2s' }}
+                style={{ transitionDelay: "0.2s" }}
               >
-                <span className={`inline-block transition-all duration-700 ${animatedElements.title ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`} style={{ transitionDelay: '0.3s' }}>WEBSITE</span>
+                <span
+                  className={`inline-block transition-all duration-700 ${
+                    animatedElements.title
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-5 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "0.3s" }}
+                >
+                  WEBSITE
+                </span>
                 <br />
-                <span className={`inline-block transition-all duration-700 ${animatedElements.title ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`} style={{ transitionDelay: '0.5s' }}>DEVELOPMENT</span>
+                <span
+                  className={`inline-block transition-all duration-700 ${
+                    animatedElements.title
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-5 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "0.5s" }}
+                >
+                  DEVELOPMENT
+                </span>
                 <br />
-                <span className={`inline-block transition-all duration-700 ${animatedElements.title ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`} style={{ transitionDelay: '0.7s' }}>SERVICES</span>
+                <span
+                  className={`inline-block transition-all duration-700 ${
+                    animatedElements.title
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-5 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "0.7s" }}
+                >
+                  SERVICES
+                </span>
               </h1>
-              
-              <div 
+
+              <div
                 data-animate="title"
-                className={`h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 mb-6 lg:mb-8 transform transition-all duration-1000 ${
-                  animatedElements.title ? 'w-32 opacity-100' : 'w-0 opacity-0'
+                className={`h-0.5 bg-cyan-500  mb-6 lg:mb-8 transform transition-all duration-1000 ${
+                  animatedElements.title ? "w-32 opacity-100" : "w-0 opacity-0"
                 }`}
-                style={{ transitionDelay: '0.9s' }}
+                style={{ transitionDelay: "0.9s" }}
               ></div>
-              
-              <p 
+
+              <p
                 data-animate="description"
                 className={`text-gray-700 text-sm sm:text-base leading-relaxed mb-6 lg:mb-8 transform transition-all duration-1000 ${
-                  animatedElements.description ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
+                  animatedElements.description
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
                 }`}
-                style={{ transitionDelay: '0.3s' }}
+                style={{ transitionDelay: "0.3s" }}
               >
                 Transform your digital presence with our professional website
                 development services. We create modern, responsive, and
@@ -94,12 +129,14 @@ const WhatWeDo = () => {
             </div>
 
             {/* Bottom Card */}
-            <div 
+            <div
               data-animate="card"
               className={`relative transform transition-all duration-1000 ${
-                animatedElements.card ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
+                animatedElements.card
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-10 opacity-0 scale-95"
               }`}
-              style={{ transitionDelay: '0.2s' }}
+              style={{ transitionDelay: "0.2s" }}
             >
               <div className="bg-white rounded-lg p-4 sm:p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group">
                 <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
@@ -122,12 +159,14 @@ const WhatWeDo = () => {
 
           {/* Center - Main Image */}
           <div className="w-full lg:flex-1 lg:max-w-lg order-1 lg:order-2">
-            <div 
+            <div
               data-animate="mainImage"
               className={`relative h-64 sm:h-80 lg:h-[600px] rounded-2xl overflow-hidden transform transition-all duration-1500 ${
-                animatedElements.mainImage ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-20 opacity-0 scale-95'
+                animatedElements.mainImage
+                  ? "translate-y-0 opacity-100 scale-100"
+                  : "translate-y-20 opacity-0 scale-95"
               } hover:scale-105 hover:shadow-2xl`}
-              style={{ transitionDelay: '0.3s' }}
+              style={{ transitionDelay: "0.3s" }}
             >
               <img
                 src="/images/5589103.jpg"
@@ -142,12 +181,14 @@ const WhatWeDo = () => {
           <div className="w-full lg:w-80 order-3 lg:order-3">
             {/* Services Section */}
             <div className="mb-6 lg:mb-8">
-              <h3 
+              <h3
                 data-animate="services"
                 className={`text-lg sm:text-xl font-medium mb-4 transform transition-all duration-1000 ${
-                  animatedElements.services ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+                  animatedElements.services
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-10 opacity-0"
                 }`}
-                style={{ transitionDelay: '0.2s' }}
+                style={{ transitionDelay: "0.2s" }}
               >
                 Our Development Services
               </h3>
@@ -157,23 +198,25 @@ const WhatWeDo = () => {
                   <div
                     key={service.title}
                     data-animate="services"
-                    className={`shadow-sm rounded-xl p-3 sm:p-4 text-cyan-500 bg-gray-100 relative overflow-hidden transform transition-all duration-1000 hover:shadow-lg hover:scale-105 hover:bg-gray-50 cursor-pointer ${
-                      animatedElements.services ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+                    className={` shadow-lg rounded-xl p-3 sm:p-4 text-gray-500 bg-gray-50 relative overflow-hidden transform transition-all duration-1000  ${
+                      animatedElements.services
+                        ? "translate-x-0 opacity-100"
+                        : "translate-x-20 opacity-0"
                     }`}
-                    style={{ 
+                    style={{
                       transitionDelay: `${0.4 + index * 0.1}s`,
                     }}
-                    onMouseEnter={() => setHoveredService(index)}
-                    onMouseLeave={() => setHoveredService(null)}
                   >
                     <div className="relative z-10">
-                      <h4 className="font-medium mb-1 text-sm sm:text-base transition-all duration-300 hover:text-cyan-600">
+                      <h4 className="font-medium mb-1 text-sm sm:text-base transition-all duration-300">
                         {service.title}
                       </h4>
                     </div>
-                    <div 
+                    <div
                       className={`absolute -right-6 sm:-right-8 -top-3 sm:-top-4 w-16 h-16 sm:w-24 sm:h-24 transition-all duration-500 ${
-                        hoveredService === index ? 'scale-110 -translate-x-1 sm:-translate-x-2 -translate-y-1 sm:-translate-y-2' : 'scale-100'
+                        hoveredService === index
+                          ? "scale-110 -translate-x-1 sm:-translate-x-2 -translate-y-1 sm:-translate-y-2"
+                          : "scale-100"
                       }`}
                     >
                       <img
@@ -182,11 +225,11 @@ const WhatWeDo = () => {
                         className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:rotate-3"
                       />
                     </div>
-                    
+
                     {/* Hover effect overlay */}
-                    <div 
-                      className={`absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl transition-opacity duration-300 ${
-                        hoveredService === index ? 'opacity-100' : 'opacity-0'
+                    <div
+                      className={`absolute inset-0 bg-cyan-500 rounded-xl transition-opacity duration-300 ${
+                        hoveredService === index ? "opacity-100" : "opacity-0"
                       }`}
                     ></div>
                   </div>
@@ -195,20 +238,22 @@ const WhatWeDo = () => {
             </div>
 
             {/* Circular Stats */}
-            <div 
+            <div
               data-animate="circular"
               className={`relative transform transition-all duration-1500 ${
-                animatedElements.circular ? 'translate-y-0 opacity-100 rotate-0' : 'translate-y-10 opacity-0 rotate-12'
+                animatedElements.circular
+                  ? "translate-y-0 opacity-100 rotate-0"
+                  : "translate-y-10 opacity-0 rotate-12"
               }`}
-              style={{ transitionDelay: '0.6s' }}
+              style={{ transitionDelay: "0.6s" }}
             >
               <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto relative group cursor-pointer">
                 {/* Circular Progress Background with pulse */}
                 <div className="w-full h-full rounded-full border-4 sm:border-6 lg:border-8 border-gray-200 group-hover:border-cyan-200 transition-colors duration-500 group-hover:animate-pulse"></div>
-                
+
                 {/* Animated border */}
-                <div className="absolute inset-0 w-full h-full rounded-full border-4 sm:border-6 lg:border-8 border-transparent bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 animate-spin-slow"></div>
-                
+                <div className="absolute inset-0 w-full h-full rounded-full border-4 sm:border-6 lg:border-8 border-transparent bg-cyan-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 animate-spin-slow"></div>
+
                 {/* Main Image in Center */}
                 <div className="absolute inset-3 sm:inset-4 lg:inset-6 rounded-full overflow-hidden group-hover:scale-110 transition-transform duration-500">
                   <img
@@ -218,7 +263,7 @@ const WhatWeDo = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                
+
                 {/* Floating particles effect */}
                 <div className="absolute inset-0 pointer-events-none">
                   {[...Array(6)].map((_, i) => (
@@ -226,10 +271,10 @@ const WhatWeDo = () => {
                       key={i}
                       className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-1000"
                       style={{
-                        left: `${20 + (i * 15)}%`,
-                        top: `${15 + (i * 12)}%`,
+                        left: `${20 + i * 15}%`,
+                        top: `${15 + i * 12}%`,
                         animationDelay: `${i * 0.2}s`,
-                        animation: 'float 3s ease-in-out infinite'
+                        animation: "float 3s ease-in-out infinite",
                       }}
                     ></div>
                   ))}
@@ -239,23 +284,32 @@ const WhatWeDo = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Custom CSS for additional animations */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(180deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(180deg);
+          }
         }
-        
+
         @keyframes animate-spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
-        
+
         .animate-spin-slow {
           animation: animate-spin-slow 8s linear infinite;
         }
-        
+
         .hover\\:shadow-3xl:hover {
           box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
         }
