@@ -82,17 +82,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transprent "
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  shadow-2xl ${
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transprent "
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 ">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/home" className="flex items-center space-x-2">
-            <img src="/images/brand-logo.png" className="w-50" alt="Logo" />
+          <Link to="/home" className="flex items-baseline space-x-2">
+            <img src="/images/brand-logo.png" className="w-9" alt="Logo" />{" "}
+            <span className="text-gray-800 font-bold text-xl ">
+              WebEscalation
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
