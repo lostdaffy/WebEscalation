@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Clock, Send, Globe } from "lucide-react";
 import Navbar from "../components/Global/Navbar";
 import Footer from "../components/Global/Footer";
+import { Link } from "react-router-dom";
+import ContactForm from "../components/Home/ContactForm";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -132,36 +134,40 @@ const Contact = () => {
 
   return (
     <>
-      <Navbar />
-      <div className=" bg-gradient-to-br from-slate-50 to-white " id="contact">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-24">
-            <div className="text-center">
-              <div className="text-sm uppercase tracking-wider text-gray-600 font-medium mb-4">
-                GET IN TOUCH WITH US
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-                Let's Start a{" "}
-                <span className="text-cyan-500">Conversation</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Ready to transform your ideas into reality? We're here to help
-                you build something amazing together.
-              </p>
+      {/* Hero Section */}
+      <section
+        className="mt-20"
+        style={{
+          background: `url(${"/images/406830.webp"})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          objectFit: "contain",
+          height: "70vh",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
+          <div
+            className={`text-center w-full sm:w-auto transition-all duration-1000 transform `}
+            data-animate
+            id="hero-content"
+          >
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold">
+              <span className="text-cyan-500">Contact us</span>
+              <h2 className="py-2 sm:py-3 md:py-4">
+                Let's Start a Conversation
+              </h2>
             </div>
+            <h1 className="text-sm sm:text-base lg:text-base text-white leading-tight mb-6 px-4 sm:px-0">
+              Ready to transform your ideas into reality? We're here to help you
+              build something amazing together.
+            </h1>
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-100 rounded-full animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-slate-100 rounded-full animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-cyan-50 rounded-full animate-pulse delay-500" />
         </div>
-      </div>
+      </section>
 
-      {/* Contact */}
-      <div className="min-h-screen ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="min-h-screen flex items-center justify-center ">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Cards - 2 columns on large screens */}
@@ -174,7 +180,6 @@ const Contact = () => {
                   >
                     {/* Background decoration */}
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     <div className="relative z-10">
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
@@ -209,9 +214,12 @@ const Contact = () => {
                       Let's discuss your project and explore how we can bring
                       your vision to life.
                     </p>
-                    <button className="w-full bg-white text-cyan-500 font-semibold py-4 px-6 rounded-xl hover:bg-slate-50 transition-colors duration-300 hover:shadow-lg">
+                    <Link
+                      to="tel:+918273998875"
+                      className="w-full block text-center bg-white text-cyan-500 font-semibold py-4 px-6 rounded-xl hover:bg-slate-50 transition-colors duration-300 hover:shadow-lg"
+                    >
                       Schedule a Call
-                    </button>
+                    </Link>
                     <div className="mt-6 pt-6 border-t border-cyan-400/30">
                       <p className="text-cyan-100 text-sm">
                         Or send us a message and we'll get back to you within 24
@@ -223,239 +231,23 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          {/* Bottom section with additional info */}
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-6 h-6 text-cyan-500" />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">
-                Quick Response
-              </h4>
-              <p className="text-slate-600 text-sm">
-                Average response time under 2 hours
-              </p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-cyan-500" />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">
-                24/7 Support
-              </h4>
-              <p className="text-slate-600 text-sm">
-                Emergency support available anytime
-              </p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-cyan-500" />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">
-                Global Reach
-              </h4>
-              <p className="text-slate-600 text-sm">
-                Serving clients worldwide
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="min-h-screen py-4 sm:py-6 md:py-8 px-4">
-        <div className="max-w-6xl mx-auto bg-gray-50 p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 rounded-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            {/* Left Column - Contact Info */}
-            <div className="space-y-6 sm:space-y-8">
-              <div
-                ref={headerRef}
-                className={`transition-all duration-1000 ${
-                  isVisible.header
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-              >
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6">
-                  Start a Conversation
-                </h1>
-                <p className="text-gray-600 text-base sm:text-lg mb-4">
-                  Whether you're a startup or an established business, let's
-                  chat about boosting your digital presence.
-                </p>
-              </div>
-
-              <div
-                ref={contactInfoRef}
-                className={`transition-all duration-1000 delay-300 ${
-                  isVisible.contactInfo
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-              >
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-3 h-3 text-cyan-500" />
-                    </div>
-                    <p className="text-gray-900 text-sm font-semibold">
-                      +91 8273998875
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-3 h-3 text-cyan-500" />
-                    </div>
-                    <p className="text-gray-900 text-sm font-semibold break-all sm:break-normal">
-                      webescalation@gmail.com
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                ref={imageRef}
-                className={`transition-all duration-1000 delay-500 ${
-                  isVisible.image
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-              >
-                <img
-                  src="/images/2148924723.webp"
-                  className="w-full rounded-2xl"
-                  alt="contact"
-                />
-              </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div className="lg:pl-8">
-              <form
-                onSubmit={handleSubmit}
-                ref={formRef}
-                className={`bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 transition-all duration-1000 delay-700 ${
-                  isVisible.form
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-              >
-                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8">
-                  Send us a message
-                </h2>
-
-                <div className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                    <div className="flex-1">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
-                        placeholder="Your name"
-                      />
-                    </div>
-
-                    <div className="flex-1">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
-                        placeholder="+91 12345 67890"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Message
-                      </label>
-                      <span className="text-sm text-gray-500">
-                        {charCount}/150
-                      </span>
-                    </div>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      maxLength={150}
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 resize-none text-gray-900"
-                      placeholder="Tell us about your project requirements..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full bg-cyan-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2 ${
-                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                        <span>Sending...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <Send className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContactForm />
 
       {/* Mission Section */}
       <div className="max-w-7xl mx-auto py-20">
-        <div className="bg-gradient-to-r from-cyan-500 to-slate-700 rounded-3xl p-12 text-center text-white">
-          <Globe className="w-16 h-16 mx-auto mb-6 opacity-90" />
-          <div className="text-sm uppercase tracking-wider text-cyan-100 font-medium mb-4">
-            OUR MISSION
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Empowering Business Through Innovation
-          </h2>
-          <p className="text-xl leading-relaxed max-w-4xl mx-auto text-cyan-50">
-            To empower businesses through innovative technology solutions that
-            drive growth, enhance efficiency, and create exceptional user
-            experiences.
-          </p>
-        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.9293995173007!2d77.54677547533879!3d29.890740975001354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x873344c5aecb6c37%3A0x290c36b9f889ffc!2sWebEscalation!5e1!3m2!1sen!2sin!4v1752230964055!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-      <Footer />
     </>
   );
 };

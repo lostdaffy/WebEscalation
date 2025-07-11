@@ -11,14 +11,12 @@ import HowWeWork from "../components/Home/HowWeWork";
 const Home = () => {
   return (
     <div className="w-full h-full">
-      <Navbar /> 
       <Hero />
       <WhatWeDo />
-      <HowWeWork/>
+      <HowWeWork />
       <WhyChooseUs />
       <OurMission />
-      <ContactForm /> 
-      <Footer />
+      <ContactForm />
     </div>
   );
 };

@@ -2,33 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Code } from "lucide-react";
 
 const OurMission = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    const element = document.getElementById("mission-section");
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, []);
-
   return (
     <div>
       <section
@@ -38,13 +11,7 @@ const OurMission = () => {
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
             {/* Left Content */}
-            <div
-              className={`w-full lg:basis-3/5 order-2 lg:order-1 transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-10"
-              }`}
-            >
+            <div className="w-full lg:basis-3/5 order-2 lg:order-1 transition-all duration-1000">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-700 pb-3 sm:pb-4 md:pb-5 leading-tight">
                 Transforming ideas into digital impact
               </h2>
@@ -67,34 +34,17 @@ const OurMission = () => {
             </div>
 
             {/* Right Content - Image with Modern Design */}
-            <div
-              className={`w-full lg:basis-2/5 order-1 lg:order-2 transition-all duration-1000 delay-300 ${
-                isVisible
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-10"
-              }`}
-            >
+            <div className="w-full lg:basis-2/5 order-1 lg:order-2 transition-all duration-1000 delay-300">
               {/* Main Image Container */}
               <div className="relative overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl max-w-md mx-auto lg:max-w-none">
                 <img
                   src="/images/2150169847.webp"
                   alt="User Experience Interface Design - Software Development"
                   className="w-full h-auto rounded-2xl sm:rounded-2xl lg:rounded-2xl shadow-lg object-cover"
-                  onError={(e) => {
-                    // Fallback if image doesn't load
-                    e.target.style.display = "none";
-                    e.target.nextSibling.style.display = "flex";
-                  }}
                 />
 
                 {/* Floating Info Card */}
-                <div
-                  className={`absolute bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-6 left-2 sm:left-3 md:left-4 lg:left-6 right-2 sm:right-3 md:right-4 lg:right-6 bg-white bg-opacity-95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-4 lg:p-6 shadow-xl transition-all duration-700 delay-600 ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                  }`}
-                >
+                <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-6 left-2 sm:left-3 md:left-4 lg:left-6 right-2 sm:right-3 md:right-4 lg:right-6 bg-white bg-opacity-95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-4 lg:p-6 shadow-xl transition-all duration-700 delay-600">
                   <div className="flex items-center justify-between">
                     <div className="flex-1 min-w-0">
                       <h4 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-slate-800 mb-0.5 sm:mb-1 truncate">

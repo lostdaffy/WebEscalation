@@ -112,39 +112,9 @@ const Navbar = () => {
                     }
                   >
                     <span>{item.name}</span>
-                    {item.hasDropdown && (
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200 ${
-                          openDropdown === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
+
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 w-0 bg-cyan-500 transition-all duration-300 group-hover:w-3/4"></div>
                   </Link>
-
-                  {/* Dropdown */}
-                  {item.hasDropdown && (
-                    <div
-                      className={`absolute left-0 mt-1 w-64 rounded-xl bg-white shadow-xl border border-gray-200 py-2 transition-all duration-300 z-50 ${
-                        openDropdown === item.name
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible translate-y-2"
-                      }`}
-                      onMouseEnter={() => setOpenDropdown(item.name)}
-                      onMouseLeave={() => setOpenDropdown(null)}
-                    >
-                      {item.dropdownItems?.map((dropItem) => (
-                        <Link
-                          key={dropItem.name}
-                          to={dropItem.to}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-cyan-500 transition-colors duration-200 mx-2 rounded-lg"
-                        >
-                          <dropItem.icon className="h-4 w-4" />
-                          <span>{dropItem.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -198,37 +168,8 @@ const Navbar = () => {
               >
                 <div className="flex items-center justify-between">
                   <span>{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        openDropdown === item.name ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
                 </div>
               </Link>
-
-              {item.hasDropdown && (
-                <div
-                  className={`ml-4 mt-2 space-y-1 transition-all duration-300 ${
-                    openDropdown === item.name
-                      ? "max-h-96 opacity-100"
-                      : "max-h-0 opacity-0"
-                  } overflow-hidden`}
-                >
-                  {item.dropdownItems?.map((dropItem) => (
-                    <Link
-                      key={dropItem.name}
-                      to={dropItem.to}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-3 px-4 py-2.5 text-sm text-gray-600 hover:text-cyan-500 hover:bg-gray-50 rounded-lg transition-colors duration-200 w-full text-left"
-                    >
-                      <dropItem.icon className="h-4 w-4" />
-                      <span>{dropItem.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
 

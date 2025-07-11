@@ -5,17 +5,20 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Career from "./pages/Career";
+import Layout from "./Layout";
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
-      </Routes>
+      </Route>
+    </Routes>
   );
 }
 

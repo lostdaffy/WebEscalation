@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Globe,
   Mail,
@@ -7,24 +7,44 @@ import {
   Code,
   Smartphone,
   Server,
-  Shield,
   Brush,
   FileText,
   Megaphone,
-  Users,
+  ArrowRight,
+  Play,
 } from "lucide-react";
-import Navbar from "../components/Global/Navbar";
-import Footer from "../components/Global/Footer";
-import { Link } from "react-router-dom";
+import ContactForm from "../components/Home/ContactForm";
 
 const Services = () => {
+  const [activeService, setActiveService] = useState(0);
+  const [visibleSections, setVisibleSections] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('[id^="section-"]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   const services = [
     {
       id: 1,
       title: "Web Solutions",
-      description:
-        "Comprehensive digital solutions to build your online presence.",
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: "from-cyan-500 to-cyan-500",
       bgColor: "bg-cyan-50",
       borderColor: "border-cyan-200",
@@ -33,139 +53,73 @@ const Services = () => {
         {
           id: 1.1,
           title: "Website Development",
-          description:
-            "Custom-coded, responsive websites tailored to your business needs.",
-          icon: <Code className="w-6 h-6" />,
+          icon: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
           id: 1.2,
           title: "Website Design",
-          description:
-            "Visually appealing and user-friendly designs focused on user experience (UI/UX).",
-          icon: <Brush className="w-6 h-6" />,
+          icon: <Brush className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
           id: 1.3,
           title: "Software Development",
-          description:
-            "Robust software solutions to streamline operations and enhance productivity.",
-          icon: <Code className="w-6 h-6" />,
+          icon: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
           id: 1.4,
           title: "Mobile Application Development",
-          description:
-            "Android & iOS apps built for performance and user engagement.",
-          icon: <Smartphone className="w-6 h-6" />,
+          icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
           id: 1.5,
           title: "Domain Registration",
-          description:
-            "Secure and manage your online identity with the right domain name.",
-          icon: <Globe className="w-6 h-6" />,
+          icon: <Globe className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
           id: 1.6,
           title: "Web Hosting",
-          description:
-            "Reliable and secure hosting services to keep your website live and fast.",
-          icon: <Server className="w-6 h-6" />,
+          icon: <Server className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
       ],
     },
     {
       id: 2,
-      title: "Email Services",
-      description:
-        "Professional email solutions to improve brand credibility and communication.",
-      icon: <Mail className="w-8 h-8" />,
-      color: "from-slate-500 to-slate-600",
-      bgColor: "bg-slate-50",
-      borderColor: "border-slate-200",
-      textColor: "text-slate-600",
-      subServices: [
-        {
-          id: 2.1,
-          title: "Professional Email Setup",
-          description:
-            "Branded email addresses (e.g., info@yourcompany.com) with secure hosting.",
-          icon: <Shield className="w-6 h-6" />,
-        },
-        {
-          id: 2.2,
-          title: "Email Designing",
-          description:
-            "Attractive, mobile-responsive email templates for newsletters, promotions, and campaigns.",
-          icon: <Brush className="w-6 h-6" />,
-        },
-      ],
-    },
-    {
-      id: 3,
       title: "Branding & Marketing Design",
       description:
         "Create a strong visual identity for your brand across print and digital platforms.",
-      icon: <Palette className="w-8 h-8" />,
+      icon: <Palette className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: "from-cyan-500 to-cyan-500",
       bgColor: "bg-cyan-50",
       borderColor: "border-cyan-200",
       textColor: "text-cyan-500",
       subServices: [
         {
-          id: 3.1,
+          id: 2.1,
           title: "Business Card Design",
           description:
             "Elegant, modern designs that leave a lasting first impression.",
-          icon: <FileText className="w-6 h-6" />,
+          icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
-          id: 3.2,
+          id: 2.2,
           title: "Pamphlet Design",
           description:
             "Informative and creative pamphlets for marketing and promotions.",
-          icon: <FileText className="w-6 h-6" />,
+          icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
-          id: 3.3,
+          id: 2.3,
           title: "Brochure Design",
           description:
             "Professional brochures to showcase your services and products.",
-          icon: <FileText className="w-6 h-6" />,
+          icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
         {
-          id: 3.4,
+          id: 2.4,
           title: "Flyer Design",
           description:
             "Eye-catching flyers perfect for events, sales, and announcements.",
-          icon: <Megaphone className="w-6 h-6" />,
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Social Media Graphics",
-      description:
-        "Engaging designs to boost your social media presence and conversions.",
-      icon: <Share2 className="w-8 h-8" />,
-      color: "from-slate-500 to-slate-600",
-      bgColor: "bg-slate-50",
-      borderColor: "border-slate-200",
-      textColor: "text-slate-600",
-      subServices: [
-        {
-          id: 4.1,
-          title: "Social Media Post Design",
-          description:
-            "Custom visuals that align with your brand and attract audience attention.",
-          icon: <Users className="w-6 h-6" />,
-        },
-        {
-          id: 4.2,
-          title: "Social Media Ads Design",
-          description:
-            "High-performing ad creatives designed for better click-through rates and conversions.",
-          icon: <Megaphone className="w-6 h-6" />,
+          icon: <Megaphone className="w-5 h-5 sm:w-6 sm:h-6" />,
         },
       ],
     },
@@ -173,162 +127,344 @@ const Services = () => {
 
   return (
     <>
-      <Navbar />
+      {/* Hero Section */}
+      <section
+        id="section-hero"
+        className="mt-20"
+        style={{
+          background: `url(${"/images/406830.webp"})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          objectFit: "contain",
+          height: "70vh",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
+          <div
+            className={`text-center transition-all duration-1000 ${
+              visibleSections["section-hero"]
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold">
+              <span className="text-cyan-500">Services</span>
+              <h2 className="py-2 sm:py-3 md:py-4">Website & Graphic Design</h2>
+            </div>
+            <h1 className="text-sm sm:text-base lg:text-base text-white leading-tight mb-6 px-4 sm:px-0">
+              Discover custom web, app, and digital solutions tailored to boost
+              your brand's growth and online success.
+            </h1>
+          </div>
+        </div>
+      </section>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center">
-              <div className="text-sm uppercase tracking-wider text-gray-600 font-medium mb-4">
-                COMPREHENSIVE DIGITAL SOLUTIONS
+      {/* Web Solutions Section */}
+      <section
+        id="section-web"
+        className="min-h-screen relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
+      >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+            {/* Left Content */}
+            <div
+              className={`lg:col-span-6 space-y-2 sm:space-y-4 transition-all duration-1000 delay-300 ${
+                visibleSections["section-web"]
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
+              {services[0].subServices.map((service, index) => (
+                <div
+                  key={service.id}
+                  className={`group cursor-pointer transition-all duration-500 ${
+                    activeService === index
+                      ? "bg-gray-50 border-l-4 border-cyan-500"
+                      : "hover:bg-gray-50"
+                  }`}
+                  onMouseEnter={() => setActiveService(index)}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <div className="flex items-center p-3 sm:p-4 space-x-3 sm:space-x-6">
+                    <div className="text-sm sm:text-base font-bold text-gray-400 group-hover:text-cyan-500 transition-colors">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <div className="flex items-center space-x-3 sm:space-x-4 flex-1">
+                      <div className="text-cyan-500 opacity-60 group-hover:opacity-100 transition-opacity">
+                        {service.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 group-hover:text-cyan-500 transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-cyan-500 group-hover:translate-x-2 transition-all" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Image */}
+            <div
+              className={`lg:col-span-6 transition-all duration-1000 delay-500 ${
+                visibleSections["section-web"]
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div className="w-full">
+                <img
+                  src="/images/9876473.webp"
+                  className="w-full rounded-2xl shadow-lg"
+                  alt="Web Solutions"
+                />
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-                Our <span className="text-cyan-500">Services</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Transform your business with our comprehensive digital solutions
-                designed to elevate your online presence and drive meaningful
-                growth
-              </p>
             </div>
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-100 rounded-full animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-slate-100 rounded-full animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-cyan-50 rounded-full animate-pulse delay-500" />
         </div>
+      </section>
 
-        {/* Services Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="space-y-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className="group relative"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Main Service Card */}
-                <div
-                  className={`relative overflow-hidden rounded-2xl ${service.bgColor} border-2 ${service.borderColor} transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl`}
-                >
-                  <div className="p-8">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-6">
-                        <div
-                          className={`p-4 rounded-xl bg-gradient-to-r ${service.color} text-white shadow-lg`}
-                        >
-                          {service.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-600 text-lg max-w-2xl">
-                            {service.description}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="text-gray-500 text-sm font-medium">
-                        {service.subServices.length} Services
-                      </div>
+      {/* Email Services Section */}
+      <section
+        id="section-email"
+        className="min-h-screen relative overflow-hidden bg-gray-100"
+      >
+        <div className="grid lg:grid-cols-12 gap-0 w-full min-h-screen">
+          {/* Left Background Image */}
+          <div
+            className={`lg:col-span-6 min-h-64 lg:min-h-screen transition-all duration-1000 ${
+              visibleSections["section-email"]
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-105"
+            }`}
+            style={{
+              background: `linear-gradient(rgb(0 0 0 / 71%), rgb(0 0 0 / 71%)), url(${"/images/123795.webp"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Right Content */}
+          <div className="lg:col-span-6 flex items-center justify-center min-h-screen py-12 sm:py-16">
+            <div
+              className={`max-w-lg w-full px-4 sm:px-6 lg:px-8 transition-all duration-1000 delay-300 ${
+                visibleSections["section-email"]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              {/* Main Service Header */}
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-cyan-500 mb-4">
+                  Email Services
+                </h3>
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                  Professional email solutions to improve brand credibility and
+                  communication.
+                </p>
+              </div>
+
+              {/* Sub-services */}
+              <div className="space-y-4 sm:space-y-6">
+                {/* Sub-service 1 */}
+                <div className="group bg-white rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800 text-base sm:text-lg mb-2 group-hover:text-cyan-600 transition-colors duration-300">
+                        Professional Email Setup
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Branded email addresses (e.g., info@yourcompany.com)
+                        with secure hosting and advanced features.
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Sub-services */}
-                <div className="mt-6">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {service.subServices.map((subService, subIndex) => (
-                      <div
-                        key={subService.id}
-                        className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-gray-200 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg group"
-                        style={{ animationDelay: `${subIndex * 50}ms` }}
-                      >
-                        <div className="flex items-start space-x-4">
-                          <div
-                            className={`p-2 rounded-lg bg-gradient-to-r ${service.color} text-white flex-shrink-0`}
-                          >
-                            {subService.icon}
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-cyan-500 transition-colors">
-                              {subService.title}
-                            </h4>
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                              {subService.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Hover effect */}
-                        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <button className="text-cyan-500 text-sm font-medium hover:text-cyan-700 transition-colors">
-                            Learn More →
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                {/* Sub-service 2 */}
+                <div className="group bg-white rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800 text-base sm:text-lg mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                        Email Designing
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Attractive, mobile-responsive email templates for
+                        newsletters, promotions, and campaigns.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-24 text-center">
-            <div className="bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-2xl p-12 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to Transform Your Business?
-                </h3>
-                <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
-                  Let's discuss how our services can help you achieve your goals
-                  and stand out in the digital landscape.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    to="/contact"
-                    className="px-8 py-4 bg-white text-cyan-500 rounded-full font-semibold hover:bg-cyan-50 transition-colors transform hover:scale-105 shadow-lg"
-                  >
-                    Get Started Today
-                  </Link>
-                  <Link
-                    to="/about#about"
-                    className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-cyan-500 transition-all transform hover:scale-105"
-                  >
-                    Know More...
-                  </Link>
-                </div>
-              </div>
-
-              {/* Background Effects */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
             </div>
           </div>
         </div>
+      </section>
 
-        <style jsx>{`
-          @keyframes fade-in {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
+      {/* Branding Section */}
+      <section
+        id="section-branding"
+        className="min-h-screen relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
+      >
+        <div className="absolute inset-0 bg-gradient-to-tl from-cyan-500/10 via-transparent to-transparent"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
+            {/* Left Side - Service List */}
+            <div
+              className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${
+                visibleSections["section-branding"]
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
+              <div className="space-y-4 sm:space-y-6">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900">
+                  Brand
+                  <span className="text-cyan-500"> Identity</span>
+                </h2>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  Create powerful visual identities that resonate with your
+                  audience and drive business growth.
+                </p>
+              </div>
 
-          .animate-fade-in {
-            animation: fade-in 1s ease-out;
-          }
-        `}</style>
-      </div>
+              <div className="space-y-4 sm:space-y-6">
+                {services[1].subServices.map((service, index) => (
+                  <div
+                    key={service.id}
+                    className={`group flex items-start space-x-3 sm:space-x-4 hover:translate-x-4 transition-all duration-300 ${
+                      visibleSections["section-branding"]
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-5"
+                    }`}
+                    style={{
+                      transitionDelay: `${(index + 1) * 200}ms`,
+                    }}
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mt-1 flex-shrink-0">
+                      <div className="text-cyan-500">{service.icon}</div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 group-hover:text-cyan-500 transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-      <Footer />
+            {/* Right Side - Large Visual Element */}
+            <div
+              className={`relative transition-all duration-1000 delay-500 ${
+                visibleSections["section-branding"]
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div className="w-full">
+                <img
+                  src="/images/10286.webp"
+                  className="w-full rounded-2xl shadow-lg"
+                  alt="Brand Identity"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Section */}
+      <section
+        id="section-social"
+        className="min-h-screen relative overflow-hidden bg-gray-100"
+      >
+        <div className="grid lg:grid-cols-12 gap-0 w-full min-h-screen">
+          {/* Left Background Image */}
+          <div
+            className={`lg:col-span-6 min-h-64 lg:min-h-screen transition-all duration-1000 ${
+              visibleSections["section-social"]
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-105"
+            }`}
+            style={{
+              background: `linear-gradient(rgb(0 0 0 / 71%), rgb(0 0 0 / 71%)), url(${"/images/550233.webp"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Right Content */}
+          <div className="lg:col-span-6 flex items-center justify-center min-h-screen py-12 sm:py-16">
+            <div
+              className={`max-w-lg w-full px-4 sm:px-6 lg:px-8 transition-all duration-1000 delay-300 ${
+                visibleSections["section-social"]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              {/* Main Service Header */}
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-cyan-500 mb-4">
+                  Social Media Graphics
+                </h3>
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                  Engaging visual content that captures attention and drives
+                  engagement across all social platforms.
+                </p>
+              </div>
+
+              {/* Sub-services */}
+              <div className="space-y-4 sm:space-y-6">
+                {/* Sub-service 1 */}
+                <div className="group bg-white rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800 text-base sm:text-lg mb-2 group-hover:text-cyan-600 transition-colors duration-300">
+                        Social Media Post Design
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Custom visuals that align with your brand and attract
+                        audience attention.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sub-service 2 */}
+                <div className="group bg-white rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800 text-base sm:text-lg mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                        Social Media Ads Design
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        High-performing ad creatives designed for better
+                        click-through rates and conversions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Placeholder */}
+      <ContactForm />
     </>
   );
 };

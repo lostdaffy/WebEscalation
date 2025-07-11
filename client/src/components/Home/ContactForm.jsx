@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Phone, Send } from "lucide-react";
 
 const ContactForm = () => {
@@ -10,46 +10,6 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [charCount, setCharCount] = useState(0);
-  const [isVisible, setIsVisible] = useState({
-    header: false,
-    contactInfo: false,
-    form: false,
-    image: false,
-  });
-
-  const headerRef = useRef(null);
-  const contactInfoRef = useRef(null);
-  const formRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            if (target === headerRef.current) {
-              setIsVisible((prev) => ({ ...prev, header: true }));
-            } else if (target === contactInfoRef.current) {
-              setIsVisible((prev) => ({ ...prev, contactInfo: true }));
-            } else if (target === formRef.current) {
-              setIsVisible((prev) => ({ ...prev, form: true }));
-            } else if (target === imageRef.current) {
-              setIsVisible((prev) => ({ ...prev, image: true }));
-            }
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (headerRef.current) observer.observe(headerRef.current);
-    if (contactInfoRef.current) observer.observe(contactInfoRef.current);
-    if (formRef.current) observer.observe(formRef.current);
-    if (imageRef.current) observer.observe(imageRef.current);
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -68,7 +28,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     const payload = {
-      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227", // Replace this with your real access key
+      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227", // Replace with your real key
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
@@ -78,9 +38,7 @@ const ContactForm = () => {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
@@ -103,19 +61,12 @@ const ContactForm = () => {
 
   return (
     <div className="min-h-screen py-4 sm:py-6 md:py-8 px-4">
-      <div className="max-w-6xl mx-auto lg:bg-gray-50 md:bg-gray-50 sm:bg-white p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 rounded-2xl">
+      <div className="max-w-6xl mx-auto bg-white p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 rounded-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left Column - Contact Info */}
-          <div className="space-y-6 sm:space-y-8">
-            <div
-              ref={headerRef}
-              className={`transition-all duration-1000 ${
-                isVisible.header
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6">
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6">
                 Start a Conversation
               </h1>
               <p className="text-gray-600 text-base sm:text-lg mb-4">
@@ -124,67 +75,44 @@ const ContactForm = () => {
               </p>
             </div>
 
-            <div
-              ref={contactInfoRef}
-              className={`transition-all duration-1000 delay-300 ${
-                isVisible.contactInfo
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                    <Phone className="w-3 h-3 text-cyan-500" />
-                  </div>
-                  <p className="text-gray-900 text-sm font-semibold">
-                    +91 8273998875
-                  </p>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+              <div className="flex items-start space-x-4">
+                <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <Phone className="w-3 h-3 text-cyan-500" />
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                    <Phone className="w-3 h-3 text-cyan-500" />
-                  </div>
-                  <p className="text-gray-900 text-sm font-semibold break-all sm:break-normal">
-                    webescalation@gmail.com
-                  </p>
+                <p className="text-gray-900 text-sm font-semibold">
+                  +91 8273998875
+                </p>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <Phone className="w-3 h-3 text-cyan-500" />
                 </div>
+                <p className="text-gray-900 text-sm font-semibold break-all sm:break-normal">
+                  webescalation@gmail.com
+                </p>
               </div>
             </div>
 
-            <div
-              ref={imageRef}
-              className={`transition-all duration-1000 delay-500 ${
-                isVisible.image
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              <img
-                src="/images/2148924723.webp"
-                className="w-full rounded-2xl"
-                alt="contact"
-              />
-            </div>
+            <img
+              src="/images/2148924723.webp"
+              className="w-full rounded-2xl"
+              alt="contact"
+            />
           </div>
 
           {/* Right Column - Contact Form */}
           <div className="lg:pl-8">
             <form
               onSubmit={handleSubmit}
-              ref={formRef}
-              className={`bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 transition-all duration-1000 delay-700 ${
-                isVisible.form
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
+              className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8"
             >
               <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8">
                 Send us a message
               </h2>
 
               <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex-1">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Name
@@ -195,7 +123,7 @@ const ContactForm = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
                       placeholder="Your name"
                     />
                   </div>
@@ -209,7 +137,7 @@ const ContactForm = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
                       placeholder="+91 12345 67890"
                     />
                   </div>
@@ -225,7 +153,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -246,7 +174,7 @@ const ContactForm = () => {
                     required
                     rows={5}
                     maxLength={150}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 resize-none text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900 resize-none"
                     placeholder="Tell us about your project requirements..."
                   />
                 </div>
@@ -254,7 +182,7 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-cyan-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2 ${
+                  className={`w-full bg-cyan-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >

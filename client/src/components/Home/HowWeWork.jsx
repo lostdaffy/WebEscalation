@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const HowWeWork = () => {
-  const [visibleElements, setVisibleElements] = useState(new Set());
-  const elementRefs = useRef([]);
-
   const steps = [
     {
       number: "01.",
@@ -31,45 +28,13 @@ const HowWeWork = () => {
     },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleElements(
-              (prev) => new Set([...prev, entry.target.dataset.index])
-            );
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    elementRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <section>
         <div className="min-h-screen bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
             {/* heading */}
-            <div
-              ref={(el) => (elementRefs.current[0] = el)}
-              data-index="0"
-              className={`transition-all duration-1000 ${
-                visibleElements.has("0")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
+            <div>
               <div className="border-b-2 border-cyan-500">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl text-cyan-600 pb-3 leading-tight">
                   How WebEscalation Works to <br className="hidden sm:block" />{" "}
@@ -84,16 +49,7 @@ const HowWeWork = () => {
                 {steps.map((step, index) => (
                   <div
                     key={index}
-                    ref={(el) => (elementRefs.current[index + 1] = el)}
-                    data-index={index + 1}
-                    className={`bg-white rounded-2xl p-6 sm:p-8 min-h-[280px] sm:min-h-[320px] shadow-lg flex flex-col space-y-4 sm:space-y-5 border-1 border-cyan-500 transition-all duration-700 ${
-                      visibleElements.has(String(index + 1))
-                        ? "opacity-100 translate-y-0 scale-100"
-                        : "opacity-0 translate-y-16 scale-95"
-                    }`}
-                    style={{
-                      transitionDelay: `${index * 150}ms`,
-                    }}
+                    className="bg-white rounded-2xl p-6 sm:p-8 min-h-[280px] sm:min-h-[320px] shadow-lg flex flex-col space-y-4 sm:space-y-5 border-1 border-cyan-500 transition-all duration-700"
                   >
                     <h2 className="text-sm font-semibold text-cyan-500">
                       {step.number}
@@ -111,13 +67,8 @@ const HowWeWork = () => {
 
             {/* footer text */}
             <div
-              ref={(el) => (elementRefs.current[5] = el)}
               data-index="5"
-              className={`py-4 sm:py-5 bg-cyan-500 rounded-2xl text-white p-4 sm:p-5 flex justify-center sm:justify-between transition-all duration-800 ${
-                visibleElements.has("5")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
+              className="py-4 sm:py-5 bg-cyan-500 rounded-2xl text-white p-4 sm:p-5 flex justify-center sm:justify-between transition-all duration-800"
             >
               <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
                 Let's take your business to the next level — start your digital
