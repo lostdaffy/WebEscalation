@@ -29,56 +29,47 @@ const HowWeWork = () => {
   ];
 
   return (
-    <>
-      <section>
-        <div className="min-h-screen bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
-            {/* heading */}
-            <div>
-              <div className="border-b-2 border-cyan-500">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl text-cyan-600 pb-3 leading-tight">
-                  How WebEscalation Works to <br className="hidden sm:block" />{" "}
-                  Boost Your Online Presence
-                </h2>
-              </div>
-            </div>
-
-            {/* cards */}
-            <div className="flex justify-center items-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full py-8 sm:py-10">
-                {steps.map((step, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl p-6 sm:p-8 min-h-[280px] sm:min-h-[320px] shadow-lg flex flex-col space-y-4 sm:space-y-5 border-1 border-cyan-500 transition-all duration-700"
-                  >
-                    <h2 className="text-sm font-semibold text-cyan-500">
-                      {step.number}
-                    </h2>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-700">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* footer text */}
-            <div
-              data-index="5"
-              className="py-4 sm:py-5 bg-cyan-500 rounded-2xl text-white p-4 sm:p-5 flex justify-center sm:justify-between transition-all duration-800"
-            >
-              <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
-                Let's take your business to the next level — start your digital
-                journey with WebEscalation today!
-              </p>
-            </div>
+    <section className="bg-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Heading */}
+        <div className="mb-10">
+          <div className="border-b-2 border-cyan-500 inline-block">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-cyan-600 font-semibold pb-2 leading-tight">
+              How WebEscalation Works to <br className="hidden sm:block" />
+              Boost Your Online Presence
+            </h2>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* Step Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 sm:p-8 min-h-[260px] flex flex-col space-y-4 shadow-md hover:shadow-lg border border-cyan-200 transition-all duration-300"
+            >
+              <h2 className="text-sm font-semibold text-cyan-500">
+                {step.number}
+              </h2>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800">
+                {step.title}
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer CTA */}
+        <div className="mt-12 bg-cyan-500 rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 text-white">
+          <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
+            Let's take your business to the next level — start your digital
+            journey with WebEscalation today!
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 

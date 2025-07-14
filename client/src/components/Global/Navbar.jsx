@@ -1,193 +1,114 @@
 import React, { useState, useEffect } from "react";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Code,
-  Mail,
-  Phone,
-  Globe,
-  Layout,
-  Palette,
-  Image,
-  Server,
-  ExternalLink,
-  Zap,
-  Building2,
-  Rocket,
-  Heart,
-} from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleDropdown = (name) => {
-    setOpenDropdown((prev) => (prev === name ? null : name));
-  };
-
   const navItems = [
-    { name: "Home", to: "/home" },
+    { name: "Welcome", to: "/home" },
+    { name: "Services", to: "/services" },
     { name: "About", to: "/about" },
-    {
-      name: "Services",
-      to: "/services",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "Website Development", to: "/services", icon: Globe },
-        { name: "Software Development", to: "/services", icon: Code },
-        { name: "Domain Registration", to: "/services", icon: ExternalLink },
-        { name: "Website Design", to: "/services", icon: Layout },
-        { name: "UI/UX Design", to: "/services", icon: Palette },
-        { name: "Graphic Design", to: "/services", icon: Image },
-        { name: "Web Hosting", to: "/services", icon: Server },
-        { name: "Professional Emails", to: "/services", icon: Mail },
-      ],
-    },
-    // {
-    //   name: "Industries",
-    //   to: "/industries",
-    //   hasDropdown: true,
-    //   dropdownItems: [
-    //     { name: "On Demand", to: "/industries/on-demand", icon: Zap },
-    //     { name: "Enterprises", to: "/industries/enterprises", icon: Building2 },
-    //     { name: "Startups", to: "/industries/startups", icon: Rocket },
-    //     { name: "Healthcare", to: "/industries/healthcare", icon: Heart },
-    //   ],
-    // },
-    // {
-    //   name: "Staff Augmentation",
-    //   to: "/staff-augmentation",
-    //   hasDropdown: true,
-    //   dropdownItems: [
-    //     { name: "Node.js", to: "/staff-augmentation/nodejs", icon: Server },
-    //     { name: "Angular", to: "/staff-augmentation/angular", icon: Code },
-    //     { name: "React", to: "/staff-augmentation/react", icon: Code },
-    //     { name: "Javascript", to: "/staff-augmentation/javascript", icon: Code },
-    //   ],
-    // },
+    { name: "Industries", to: "/industries" },
     { name: "Contact", to: "/contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  shadow-2xl ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transprent "
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 ">
+    <nav className="">
+      <div className="max-w-7xl mx-auto  py-2">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/home" className="flex items-baseline space-x-2">
-            <img src="/images/brand-logo.png" className="w-9" alt="Logo" />{" "}
-            <span className="text-gray-800 font-bold text-xl ">
+          <Link to="/home" className="flex items-baseline space-x-2 px-4">
+            <img src="/images/brand-logo.png" alt="Logo" className="w-9" />
+            <span className="text-gray-800 font-bold text-xl">
               WebEscalation
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-6">
-              {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  <Link
-                    to={item.to}
-                    className="flex items-center space-x-1 px-4 py-2 text-sm text-gray-700 hover:text-cyan-500 transition-colors duration-200 relative rounded-lg hover:bg-gray-50"
-                    onMouseEnter={() =>
-                      item.hasDropdown && setOpenDropdown(item.name)
-                    }
-                    onMouseLeave={() =>
-                      item.hasDropdown && setOpenDropdown(null)
-                    }
-                  >
-                    <span>{item.name}</span>
-
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 w-0 bg-cyan-500 transition-all duration-300 group-hover:w-3/4"></div>
-                  </Link>
-                </div>
-              ))}
-            </div>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-10">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.to}
+                className="relative text-sm font-semibold text-gray-700 hover:text-cyan-500 transition-colors"
+              >
+                {item.name}
+                <span className="absolute left-1/2 -bottom-1 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2"></span>
+              </Link>
+            ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Desktop */}
           <div className="hidden md:block">
-            <a href="tel:+918273998875">
-              <button className="border-1 border-gray-500 text-gray-500 px-6 py-1.5 rounded-full  hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>Call Now</span>
-              </button>
-            </a>
+            <Link
+              to="/contact"
+              className="px-5 py-1.5 rounded-full border border-gray-800 text-gray-800 hover:shadow-lg hover:scale-105 transition-all flex items-center space-x-2"
+            >
+              <Phone className="h-4 w-4" />
+              <span>Contact Us</span>
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Icon */}
           <div className="md:hidden">
             <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:text-cyan-500 hover:bg-gray-100 transition-colors duration-200"
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-gray-700 hover:text-cyan-500 hover:bg-gray-100 rounded-lg transition"
+              aria-label="Toggle Menu"
             >
               {isOpen ? (
-                <X className="block h-6 w-6" />
+                <X className="h-6 w-6" />
               ) : (
-                <Menu className="block h-6 w-6" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 ${
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
+        }`}
       >
-        <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/20 px-4 py-4 space-y-2">
+        <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-4 space-y-2">
           {navItems.map((item) => (
-            <div key={item.name}>
-              <Link
-                to={item.to}
-                onClick={() => {
-                  if (item.hasDropdown) {
-                    toggleDropdown(item.name);
-                  } else {
-                    setIsOpen(false);
-                  }
-                }}
-                className="w-full text-left block px-4 py-3 text-base font-medium text-gray-700 hover:text-cyan-500 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-              >
-                <div className="flex items-center justify-between">
-                  <span>{item.name}</span>
-                </div>
-              </Link>
-            </div>
+            <Link
+              key={item.name}
+              to={item.to}
+              onClick={() => setIsOpen(false)}
+              className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-cyan-500 hover:bg-gray-50 rounded-lg transition"
+            >
+              {item.name}
+            </Link>
           ))}
 
           {/* Mobile CTA */}
-          <div className="pt-4 mt-4 border-t border-gray-200/20 space-y-3">
-            <a
-              href="tel:+918273998875"
-              className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-cyan-500 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+          <div className="pt-4 mt-4 border-t border-gray-200 space-y-3">
+            <Link
+              to="/contact"
+              className="flex items-center space-x-3 text-gray-600 hover:text-cyan-500 hover:bg-gray-50 px-4 py-3 rounded-lg transition"
+              onClick={() => setIsOpen(false)}
             >
               <Phone className="h-4 w-4" />
               <span>+91 8273998875</span>
-            </a>
-            <a href="tel:+918273998875">
-              <button className="w-full border-1 border-gray-500 text-gray-500 px-6 py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+            </Link>
+
+            <Link to="/contact" onClick={() => setIsOpen(false)}>
+              <button className="w-full border border-gray-500 text-gray-600 px-6 py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>Call Now</span>
+                <span>Contact Us</span>
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

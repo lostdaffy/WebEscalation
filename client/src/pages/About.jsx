@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  Users,
-  Target,
-  Lightbulb,
-  Rocket,
-  Globe,
-  Code,
-  Database,
-  Cloud,
-  Smartphone,
-  Wrench,
-  Zap,
-  Shield,
-  Star,
-} from "lucide-react";
-import Navbar from "../components/Global/Navbar";
-import Footer from "../components/Global/Footer";
-import { Link } from "react-router-dom";
+import { Users, Target, Lightbulb, Rocket } from "lucide-react";
 import ContactForm from "../components/Home/ContactForm";
+import PageBanner from "../components/Global/PageBanner";
 
 const About = () => {
   const [visibleElements, setVisibleElements] = useState(new Set());
@@ -27,19 +11,18 @@ const About = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleElements(prev => new Set([...prev, entry.target.id]));
+            setVisibleElements((prev) => new Set([...prev, entry.target.id]));
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll('[data-animate]');
+    const elements = document.querySelectorAll("[data-animate]");
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
-
   const values = [
     {
       icon: <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8" />,
@@ -93,45 +76,22 @@ const About = () => {
   return (
     <>
       {/* AboutHero */}
-      <section
-        className="mt-20"
-        style={{
-          background: `url(${"/images/406830.webp"})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          objectFit: "contain",
-          height: "70vh",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
-          <div 
-            className={`text-center w-full sm:w-auto transition-all duration-1000 transform ${
-              visibleElements.has('hero-content') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-            data-animate
-            id="hero-content"
-          >
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold">
-              <span className="text-cyan-500"> About Us</span>
-              <h2 className="py-2 sm:py-3 md:py-4">
-                Innovative Digital Solutions
-              </h2>
-            </div>
-            <h1 className="text-sm sm:text-base lg:text-base text-white leading-tight mb-6 px-4 sm:px-0">
-              We build scalable digital products and software solutions that
-              empower businesses to grow online.
-            </h1>
-          </div>
-        </div>
-      </section>
+
+      <PageBanner
+        heading="About Us"
+        subheading=" Innovative Digital Solutions"
+        description="We build scalable digital products and software solutions that
+              empower businesses to grow online."
+      />
 
       {/* AboutStory Section */}
       <section className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-12 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <div 
+          <div
             className={`space-y-6 transition-all duration-1000 delay-200 transform ${
-              visibleElements.has('story-content') ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              visibleElements.has("story-content")
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-10 opacity-0"
             }`}
             data-animate
             id="story-content"
@@ -159,9 +119,11 @@ const About = () => {
             </div>
           </div>
 
-          <div 
+          <div
             className={`relative transition-all duration-1000 delay-400 transform ${
-              visibleElements.has('story-image') ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+              visibleElements.has("story-image")
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
             }`}
             data-animate
             id="story-image"
@@ -181,9 +143,11 @@ const About = () => {
       <section className="bg-gray-100">
         <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center relative py-12 lg:py-0">
           <div className="w-full">
-            <div 
+            <div
               className={`text-center pb-8 lg:pb-16 transition-all duration-1000 transform ${
-                visibleElements.has('values-header') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                visibleElements.has("values-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
               }`}
               data-animate
               id="values-header"
@@ -202,7 +166,9 @@ const About = () => {
                 <div
                   key={index}
                   className={`group relative bg-white p-4 sm:p-6 lg:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-cyan-200 transform hover:-translate-y-2 ${
-                    visibleElements.has(`value-${index}`) ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    visibleElements.has(`value-${index}`)
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
                   }`}
                   style={{ transitionDelay: `${index * 200}ms` }}
                   data-animate
@@ -239,9 +205,11 @@ const About = () => {
       {/* Technologies */}
       <section className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-12 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <div 
+          <div
             className={`relative order-2 lg:order-1 transition-all duration-1000 delay-200 transform ${
-              visibleElements.has('tech-image') ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              visibleElements.has("tech-image")
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-10 opacity-0"
             }`}
             data-animate
             id="tech-image"
@@ -255,9 +223,11 @@ const About = () => {
             </div>
           </div>
 
-          <div 
+          <div
             className={`space-y-4 py-6 sm:py-10 px-4 bg-white text-center order-1 lg:order-2 transition-all duration-1000 transform ${
-              visibleElements.has('tech-content') ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+              visibleElements.has("tech-content")
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
             }`}
             data-animate
             id="tech-content"
@@ -292,8 +262,12 @@ const About = () => {
               <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
                 MongoDB
               </span>
-              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">HTML</span>
-              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">CSS</span>
+              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
+                HTML
+              </span>
+              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
+                CSS
+              </span>
               <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
                 JavaScript
               </span>
@@ -303,8 +277,12 @@ const About = () => {
               <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
                 Firebase
               </span>
-              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">MySQL</span>
-              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">PHP</span>
+              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
+                MySQL
+              </span>
+              <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
+                PHP
+              </span>
               <span className="bg-slate-100 px-2 sm:px-3 py-1 rounded-full">
                 Laravel
               </span>

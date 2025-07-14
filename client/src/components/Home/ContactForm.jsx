@@ -28,7 +28,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     const payload = {
-      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227", // Replace with your real key
+      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227",
       name: formData.name,
       email: formData.email,
       phone: formData.phone,

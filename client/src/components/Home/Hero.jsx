@@ -1,70 +1,100 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div
-      className="min-h-screen pt-20 sm:pt-24 lg:pt-28"
-      style={{
-        background: `url(${"/images/5599220.jpg"})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-      id="#hero"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col justify-center items-center text-center min-h-screen py-8 sm:py-12 lg:py-16">
-          <div className="space-y-8 sm:space-y-10 lg:space-y-12 max-w-5xl w-full">
-            {/* Heading */}
-            <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-800 leading-tight">
-                <span className="inline-block transition-all duration-1000 ease-out">
-                  Complete{" "}
-                </span>
-                <span className="text-cyan-500 font-medium inline-block transition-all duration-1000 ease-out">
-                  Digital Solutions
-                </span>
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>
-                <span className="inline-block transition-all duration-1000 ease-out">
-                  with Innovative Design
-                </span>
-              </h1>
+    <section className="min-h-screen bg-white px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-10 space-y-12">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Heading */}
+          <div className="md:w-2/3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-gray-800 leading-tight tracking-tight">
+              Custom Scalable Web
+              {/* <br className="hidden sm:block" /> */}
+              <span className="text-cyan-600"> Solutions Growth</span>
+            </h1>
+          </div>
 
-              {/* Subtitle */}
-              <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto transition-all duration-1000 ease-out px-2 sm:px-0">
-                Grow Your Business Online with <strong>WebEscalation</strong>
-              </p>
+          {/* Description Box */}
+          <div className="md:w-1/3 bg-white border border-gray-200 p-5 sm:p-6 rounded-2xl shadow-sm space-y-4">
+            <img
+              src="/images/35678.jpg" // Replace with your actual image path
+              alt="Web Design Illustration"
+              className="w-full h-auto rounded-xl object-cover"
+            />
+            <p className="text-base sm:text-base leading-7 text-gray-700">
+              We build modern websites, powerful web apps, and
+              conversion-focused digital experiences.
+            </p>
+          </div>
+        </div>
 
-              {/* Description */}
-              <p className="text-gray-600 text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out px-4 sm:px-2 lg:px-0">
-                From website development to mobile apps, and from UI/UX design
-                to professional email solutions, we craft high-performing
-                digital experiences that elevate your brand, engage users, and
-                drive real results.
-              </p>
-            </div>
+        {/* Marquee */}
+        <div className="relative w-full overflow-hidden bg-cyan-50 py-3">
+          <div className="flex animate-marquee whitespace-nowrap text-cyan-700 text-sm font-medium">
+            <span className="mx-5">
+              WebEscalation – Custom Web Development Services | SEO-Optimized
+              Websites for Higher Google Rankings | Fast, Secure & Scalable Web
+              Applications | UI/UX Focused Web Design that Converts | Digital
+              Growth Solutions for Modern Businesses
+            </span>
+            <span className="mx-5" aria-hidden="true">
+              WebEscalation – Custom Web Development Services | SEO-Optimized
+              Websites for Higher Google Rankings | Fast, Secure & Scalable Web
+              Applications | UI/UX Focused Web Design that Converts | Digital
+              Growth Solutions for Modern Businesses
+            </span>
+          </div>
+        </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center items-center transition-all duration-1000 ease-out px-4 sm:px-0">
-              <Link
-                to="/about"
-                className="w-full sm:w-auto bg-cyan-500 text-white px-6 sm:px-8 lg:px-10 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium hover:bg-cyan-600 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-200"
+        {/* Bottom Section */}
+        <div className="flex flex-col-reverse lg:flex-row gap-6">
+          {/* Services */}
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-4 lg:w-1/5">
+            {[
+              { title: "Online Visibility", desc: "Rank higher. Reach more." },
+              { title: "Better Engagement", desc: "Captivate. Convert. Grow." },
+              {
+                title: "Scalable Growth",
+                desc: "Built to expand effortlessly.",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex-1 bg-gray-50 px-4 py-5 rounded-xl shadow-sm"
               >
-                Learn More About Us
-              </Link>
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-6 sm:px-8 lg:px-10 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium hover:border-cyan-500 hover:text-cyan-500 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-200"
-              >
-                Contact us
-              </Link>
-            </div>
+                <h3 className="text-base font-semibold text-cyan-500 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-700">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Image */}
+          <div className="w-full lg:w-4/5">
+            <img
+              src="/images/43976.jpg"
+              alt="WebEscalation Background"
+              className="w-full h-auto object-cover rounded-2xl shadow-md"
+            />
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Marquee Animation */}
+      <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 32s linear infinite;
+          }
+        `}
+      </style>
+    </section>
   );
 };
 

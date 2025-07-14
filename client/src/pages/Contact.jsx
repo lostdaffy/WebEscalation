@@ -1,110 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Mail, Phone, MapPin, Clock, Send, Globe } from "lucide-react";
-import Navbar from "../components/Global/Navbar";
-import Footer from "../components/Global/Footer";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContactForm from "../components/Home/ContactForm";
+import PageBanner from "../components/Global/PageBanner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [charCount, setCharCount] = useState(0);
-  const [isVisible, setIsVisible] = useState({
-    header: false,
-    contactInfo: false,
-    form: false,
-    image: false,
-  });
-
-  const headerRef = useRef(null);
-  const contactInfoRef = useRef(null);
-  const formRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            if (target === headerRef.current) {
-              setIsVisible((prev) => ({ ...prev, header: true }));
-            } else if (target === contactInfoRef.current) {
-              setIsVisible((prev) => ({ ...prev, contactInfo: true }));
-            } else if (target === formRef.current) {
-              setIsVisible((prev) => ({ ...prev, form: true }));
-            } else if (target === imageRef.current) {
-              setIsVisible((prev) => ({ ...prev, image: true }));
-            }
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (headerRef.current) observer.observe(headerRef.current);
-    if (contactInfoRef.current) observer.observe(contactInfoRef.current);
-    if (formRef.current) observer.observe(formRef.current);
-    if (imageRef.current) observer.observe(imageRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    if (name === "message") {
-      setCharCount(value.length);
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const payload = {
-      access_key: "48ab3e6c-7cec-47a0-a1ee-baedf022d227", // Replace this with your real access key
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-    };
-
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        alert("Thank you! Your message has been sent.");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-        setCharCount(0);
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("There was an error submitting the form.");
-    }
-
-    setIsSubmitting(false);
-  };
-
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
@@ -135,36 +35,12 @@ const Contact = () => {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="mt-20"
-        style={{
-          background: `url(${"/images/406830.webp"})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          objectFit: "contain",
-          height: "70vh",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
-          <div
-            className={`text-center w-full sm:w-auto transition-all duration-1000 transform `}
-            data-animate
-            id="hero-content"
-          >
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold">
-              <span className="text-cyan-500">Contact us</span>
-              <h2 className="py-2 sm:py-3 md:py-4">
-                Let's Start a Conversation
-              </h2>
-            </div>
-            <h1 className="text-sm sm:text-base lg:text-base text-white leading-tight mb-6 px-4 sm:px-0">
-              Ready to transform your ideas into reality? We're here to help you
-              build something amazing together.
-            </h1>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        heading="Contact Us"
+        subheading="Let's Start a Conversation"
+        description="Ready to transform your ideas into reality? We're here to help you
+              build something amazing together."
+      />
 
       <section className="min-h-screen flex items-center justify-center ">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
