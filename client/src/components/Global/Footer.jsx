@@ -159,16 +159,7 @@ const Footer = () => {
                   to="tel:+918273998875"
                   className="text-sm sm:text-base hover:text-cyan-400 transition-colors duration-200"
                 >
-                  +91 8273998875 (Saharanpur)
-                </Link>
-              </div>
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 flex-shrink-0" />
-                <Link
-                  to="tel:+919060044717"
-                  className="text-sm sm:text-base hover:text-cyan-400 transition-colors duration-200"
-                >
-                  +91 9060044717 <br /> (Patna, Bihar Office)
+                  +91 8273998875
                 </Link>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">

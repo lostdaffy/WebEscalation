@@ -13,12 +13,6 @@ const Contact = () => {
       subInfo: "Uttar Pradesh, India, 247001",
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us (Patna Office)",
-      info: "+91 9060044717",
-      subInfo: "Bihar, India, 80020",
-    },
-    {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       info: "webescalation@gmail.com",
