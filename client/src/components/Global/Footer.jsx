@@ -33,14 +33,8 @@ const Footer = () => {
             <div>
               <div className="pb-2">
                 <Link to="/home" className="flex items-baseline space-x-2">
-                  <img
-                    src="/images/brand-logo.png"
-                    className="w-9"
-                    alt="Logo"
-                  />
-                  <span className="font-bold text-xl text-white">
-                    WebEscalation
-                  </span>
+                              <img src="/images/brand-name.png" alt="Logo" className="w-50" />
+
                 </Link>
               </div>
               <p className="text-xs sm:text-sm uppercase tracking-wider text-gray-400 mb-3 sm:mb-4">

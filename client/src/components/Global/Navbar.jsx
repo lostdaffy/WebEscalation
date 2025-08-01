@@ -26,10 +26,10 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/home" className="flex items-baseline space-x-2 px-4">
-            <img src="/images/brand-logo.png" alt="Logo" className="w-9" />
-            <span className="text-gray-800 font-bold text-xl">
+            <img src="/images/brand-name.png" alt="Logo" className="w-50" />
+            {/* <span className="text-gray-800 font-bold text-xl">
               WebEscalation
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop Menu */}
