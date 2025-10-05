@@ -21,7 +21,7 @@ const WhatWeDo = () => {
                 <span className="block">DEVELOPMENT</span>
                 <span className="block">SERVICES</span>
               </h1>
-              <div className="h-1 bg-cyan-500 mb-6" />
+              <div className="h-1 bg-[#0092b8] mb-6" />
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
                 Transform your digital presence with our professional website
                 development services. We create modern, responsive, and
@@ -42,7 +42,7 @@ const WhatWeDo = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <button className="absolute bottom-3 right-3 bg-white rounded-full p-2 shadow hover:shadow-md transition hover:scale-110 hover:bg-cyan-50">
-                  <ArrowRight className="w-4 h-4 text-cyan-500 group-hover:text-cyan-600 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#0092b8] group-hover:text-[#0092b8] transition-colors" />
                 </button>
               </div>
             </div>
@@ -95,14 +95,14 @@ const WhatWeDo = () => {
             {/* Circular Image */}
             <div className="w-32 sm:w-40 lg:w-48 mx-auto relative group cursor-pointer">
               <div className="w-full h-full rounded-full border-4 sm:border-6 border-gray-200 group-hover:border-cyan-200 transition-all" />
-              <div className="absolute inset-0 rounded-full bg-cyan-500 opacity-0 group-hover:opacity-20 transition duration-500 animate-spin-slow" />
+              <div className="absolute inset-0 rounded-full bg-[#0092b8] opacity-0 group-hover:opacity-20 transition duration-500 animate-spin-slow" />
               <div className="absolute inset-3 sm:inset-4 lg:inset-5 rounded-full overflow-hidden group-hover:scale-110 transition-transform">
                 <img
                   src="/images/6546515.jpg"
                   alt="Development process"
                   className="w-full h-full object-cover group-hover:rotate-6"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0092b8]/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>

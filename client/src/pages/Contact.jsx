@@ -46,20 +46,20 @@ const Contact = () => {
                 {contactInfo.map((item, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-cyan-500 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                    className="group relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0092b8] transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                   >
                     {/* Background decoration */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#0092b8]/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative z-10">
                       <div className="flex items-center space-x-4 mb-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <div className="flex-shrink-0 w-12 h-12 bg-[#0092b8] rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                           {item.icon}
                         </div>
-                        <h3 className="text-lg font-semibold text-slate-900 group-hover:text-cyan-500 transition-colors duration-300">
+                        <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#0092b8] transition-colors duration-300">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-cyan-500 font-semibold text-lg mb-2">
+                      <p className="text-[#0092b8] font-semibold text-lg mb-2">
                         {item.info}
                       </p>
                       <p className="text-slate-500">{item.subInfo}</p>
@@ -72,7 +72,7 @@ const Contact = () => {
             {/* CTA Card */}
             <div className="lg:col-span-1">
               <div className="sticky top-6">
-                <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="bg-gradient-to-br from-[#0092b8] to-[#0092b8] rounded-2xl p-8 text-white shadow-2xl">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <Phone className="w-8 h-8 text-white" />
@@ -86,11 +86,11 @@ const Contact = () => {
                     </p>
                     <Link
                       to="tel:+918273998875"
-                      className="w-full block text-center bg-white text-cyan-500 font-semibold py-4 px-6 rounded-xl hover:bg-slate-50 transition-colors duration-300 hover:shadow-lg"
+                      className="w-full block text-center bg-white text-[#0092b8] font-semibold py-4 px-6 rounded-xl hover:bg-slate-50 transition-colors duration-300 hover:shadow-lg"
                     >
                       Schedule a Call
                     </Link>
-                    <div className="mt-6 pt-6 border-t border-cyan-400/30">
+                    <div className="mt-6 pt-6 border-t border-[#0092b8]/30">
                       <p className="text-cyan-100 text-sm">
                         Or send us a message and we'll get back to you within 24
                         hours

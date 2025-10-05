@@ -21,7 +21,7 @@ const OurMission = () => {
                 solutions. We bridge the gap between innovation and business
                 growth through smart technology.
               </p>
-              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-4 sm:p-6 md:p-6 rounded-xl sm:rounded-2xl mt-4 sm:mt-5 border-b-2 border-t-2 border-cyan-500">
+              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-4 sm:p-6 md:p-6 rounded-xl sm:rounded-2xl mt-4 sm:mt-5 border-b-2 border-t-2 border-[#0092b8]">
                 <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3 md:mb-4 font-semibold">
                   WebEscalation Mission
                 </h3>
@@ -54,7 +54,7 @@ const OurMission = () => {
                         Crafting intuitive digital experiences
                       </p>
                     </div>
-                    <div className="bg-cyan-500 rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 flex-shrink-0 ml-2">
+                    <div className="bg-[#0092b8] rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 flex-shrink-0 ml-2">
                       <Code className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                     </div>
                   </div>

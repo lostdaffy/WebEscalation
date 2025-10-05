@@ -23,33 +23,47 @@ const PageBanner = ({ heading, subheading, description }) => {
 
   return (
     <section
+      className="relative"
       style={{
-        background: `url(${"/images/406830.webp"})`,
+        background: `url(${"/images/406830.jpg"})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: "70vh",
+        height: "60vh",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
-        <div
-          className={`text-center w-full sm:w-auto transition-all duration-1000 transform ${
-            visibleElements.has("page-banner")
-              ? "translate-y-0 opacity-100"
-              : "translate-y-10 opacity-0"
-          }`}
-          id="page-banner"
-          data-animate
-        >
-          <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold">
-            <span className="text-cyan-500">{heading}</span>
-            <h2 className="py-2 sm:py-3 md:py-4">{subheading}</h2>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      <div className="relative h-full flex items-center justify-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div
+            className={`transition-all duration-1000 transform ${
+              visibleElements.has("page-banner")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+            }`}
+            id="page-banner"
+            data-animate
+          >
+            <div className="mb-6">
+              {heading && (
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-wider text-[#0092b8] font-bold block">
+                  {heading}
+                </span>
+              )}
+              {subheading && (
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase tracking-wider text-white font-bold mt-2">
+                  {subheading}
+                </h1>
+              )}
+            </div>
+            {description && (
+              <p className="text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto">
+                {description}
+              </p>
+            )}
           </div>
-          {description && (
-            <p className="text-sm sm:text-base lg:text-base text-white leading-tight mb-6 px-4 sm:px-0">
-              {description}
-            </p>
-          )}
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ const Hero = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-gray-800 leading-tight tracking-tight">
               Custom Scalable Web
               {/* <br className="hidden sm:block" /> */}
-              <span className="text-cyan-600"> Solutions Growth</span>
+              <span className="text-[#0092b8]"> Solutions Growth</span>
             </h1>
           </div>
 
@@ -31,7 +31,7 @@ const Hero = () => {
 
         {/* Marquee */}
         <div className="relative w-full overflow-hidden bg-cyan-50 py-3">
-          <div className="flex animate-marquee whitespace-nowrap text-cyan-700 text-sm font-medium">
+          <div className="flex animate-marquee whitespace-nowrap text-[#0092b8] text-sm font-medium">
             <span className="mx-5">
               WebEscalation – Custom Web Development Services | SEO-Optimized
               Websites for Higher Google Rankings | Fast, Secure & Scalable Web
@@ -63,7 +63,7 @@ const Hero = () => {
                 key={index}
                 className="flex-1 bg-gray-50 px-4 py-5 rounded-xl shadow-sm"
               >
-                <h3 className="text-base font-semibold text-cyan-500 mb-1">
+                <h3 className="text-base font-semibold text-[#0092b8] mb-1">
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-700">{item.desc}</p>

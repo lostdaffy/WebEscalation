@@ -78,7 +78,7 @@ const ContactForm = () => {
             <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                  <Phone className="w-3 h-3 text-cyan-500" />
+                  <Phone className="w-3 h-3 text-[#0092b8]" />
                 </div>
                 <p className="text-gray-900 text-sm font-semibold">
                   +91 8273998875
@@ -86,7 +86,7 @@ const ContactForm = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
-                  <Phone className="w-3 h-3 text-cyan-500" />
+                  <Phone className="w-3 h-3 text-[#0092b8]" />
                 </div>
                 <p className="text-gray-900 text-sm font-semibold break-all sm:break-normal">
                   webescalation@gmail.com
@@ -123,7 +123,7 @@ const ContactForm = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0092b8] focus:border-[#0092b8] text-gray-900"
                       placeholder="Your name"
                     />
                   </div>
@@ -137,7 +137,7 @@ const ContactForm = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0092b8] focus:border-[#0092b8] text-gray-900"
                       placeholder="+91 12345 67890"
                     />
                   </div>
@@ -153,7 +153,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0092b8] focus:border-[#0092b8] text-gray-900"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -174,7 +174,7 @@ const ContactForm = () => {
                     required
                     rows={5}
                     maxLength={150}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-gray-900 resize-none"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0092b8] focus:border-[#0092b8] text-gray-900 resize-none"
                     placeholder="Tell us about your project requirements..."
                   />
                 </div>
@@ -182,7 +182,7 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-cyan-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-cyan-600 transition-all duration-300 flex items-center justify-center space-x-2 ${
+                  className={`w-full bg-[#0092b8] text-white font-medium py-2 px-6 rounded-lg hover:bg-[#0092b8] transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >

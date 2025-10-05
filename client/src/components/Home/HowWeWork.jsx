@@ -29,44 +29,88 @@ const HowWeWork = () => {
   ];
 
   return (
-    <section className="bg-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Heading */}
-        <div className="mb-10">
-          <div className="border-b-2 border-cyan-500 inline-block">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-cyan-600 font-semibold pb-2 leading-tight">
-              How WebEscalation Works to <br className="hidden sm:block" />
-              Boost Your Online Presence
-            </h2>
+    <section className="bg-gray-50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#0092b8] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0092b8] rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative">
+        {/* Heading Section */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-12 h-0.5 bg-[#0092b8]"></div>
+            <span className="text-[#0092b8] font-medium text-sm uppercase tracking-wider">
+              Our Process
+            </span>
+            <div className="w-12 h-0.5 bg-[#0092b8]"></div>
           </div>
+
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            How {" "}
+            <span className="text-[#0092b8] relative">
+              WebEscalation
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#0092b8] opacity-20 rounded-full"></div>
+            </span>
+            {" "}Works
+          </h2>
+
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Our proven 4-step methodology ensures your digital success from
+            concept to launch
+          </p>
         </div>
 
         {/* Step Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 sm:p-8 min-h-[260px] flex flex-col space-y-4 shadow-md hover:shadow-lg border border-cyan-200 transition-all duration-300"
+              className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#0092b8]/20 hover:-translate-y-2"
             >
-              <h2 className="text-sm font-semibold text-cyan-500">
-                {step.number}
-              </h2>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                {step.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                {step.description}
-              </p>
+              {/* Card Number Badge */}
+              <div className="absolute -top-4 left-8">
+                <div className="bg-[#0092b8] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-lg">
+                  {index + 1}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-[#0092b8] font-bold text-sm opacity-70">
+                    {step.number}
+                  </span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-[#0092b8]/30 to-transparent"></div>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#0092b8] transition-colors duration-300">
+                  {step.title}
+                </h3>
+
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  {step.description}
+                </p>
+              </div>
+
+              {/* Hover Effect Decoration */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0092b8] to-[#0092b8]/50 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             </div>
           ))}
         </div>
 
-        {/* Footer CTA */}
-        <div className="mt-12 bg-cyan-500 rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row items-center sm:justify-between gap-4 text-white">
-          <p className="text-sm sm:text-base text-center sm:text-left leading-relaxed">
-            Let's take your business to the next level — start your digital
-            journey with WebEscalation today!
-          </p>
+        {/* Process Flow Connector */}
+        <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-8">
+          <div className="flex items-center gap-8 text-[#0092b8]/30">
+            <div className="w-8 h-px bg-current"></div>
+            <div className="w-2 h-2 bg-current rounded-full"></div>
+            <div className="w-16 h-px bg-current"></div>
+            <div className="w-2 h-2 bg-current rounded-full"></div>
+            <div className="w-16 h-px bg-current"></div>
+            <div className="w-2 h-2 bg-current rounded-full"></div>
+            <div className="w-8 h-px bg-current"></div>
+          </div>
         </div>
       </div>
     </section>

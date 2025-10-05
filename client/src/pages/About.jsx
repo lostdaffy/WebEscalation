@@ -96,12 +96,12 @@ const About = () => {
             data-animate
             id="story-content"
           >
-            <div className="text-sm sm:text-base uppercase tracking-wider text-cyan-500 font-bold">
+            <div className="text-sm sm:text-base uppercase tracking-wider text-[#0092b8] font-bold">
               OUR JOURNEY
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-800 leading-tight">
               Building Success Through{" "}
-              <span className="text-cyan-500">Innovation</span>
+              <span className="text-[#0092b8]">Innovation</span>
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base">
               <p>
@@ -152,7 +152,7 @@ const About = () => {
               data-animate
               id="values-header"
             >
-              <h2 className="text-xl sm:text-2xl font-semibold text-cyan-500 leading-tight mb-4 tracking-wide">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#0092b8] leading-tight mb-4 tracking-wide">
                 What Drives Us
               </h2>
               <p className="text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto px-4">
@@ -176,8 +176,8 @@ const About = () => {
                 >
                   {/* Icon Container */}
                   <div className="relative mb-4 sm:mb-6">
-                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-cyan-50 rounded-2xl group-hover:bg-cyan-500 transition-colors duration-300">
-                      <div className="text-cyan-500 group-hover:text-white transition-colors duration-300">
+                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-cyan-50 rounded-2xl group-hover:bg-[#0092b8] transition-colors duration-300">
+                      <div className="text-[#0092b8] group-hover:text-white transition-colors duration-300">
                         {value.icon}
                       </div>
                     </div>
@@ -185,7 +185,7 @@ const About = () => {
 
                   {/* Content */}
                   <div className="space-y-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-cyan-500 transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-[#0092b8] transition-colors duration-300">
                       {value.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed text-sm">
@@ -194,7 +194,7 @@ const About = () => {
                   </div>
 
                   {/* Decorative Line */}
-                  <div className="absolute bottom-0 left-4 right-4 sm:left-8 sm:right-8 h-0.5 bg-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                  <div className="absolute bottom-0 left-4 right-4 sm:left-8 sm:right-8 h-0.5 bg-[#0092b8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </div>
               ))}
             </div>
@@ -232,12 +232,12 @@ const About = () => {
             data-animate
             id="tech-content"
           >
-            <div className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-500">
+            <div className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#0092b8]">
               Web Development Expertise
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
               Modern Websites Built with{" "}
-              <span className="text-cyan-500">Reliable Technologies</span>
+              <span className="text-[#0092b8]">Reliable Technologies</span>
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">
               We build lightning-fast, mobile-responsive, and SEO-ready websites

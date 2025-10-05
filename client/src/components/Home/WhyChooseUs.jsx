@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
               <div className="transition-all duration-1000 delay-300">
                 <h3 className="text-gray-700 text-2xl sm:text-3xl lg:text-4xl pb-5 text-center lg:text-left">
                   Why Choose{" "}
-                  <span className="border-cyan-500 text-gray-700 border-b-2">
+                  <span className="border-[#0092b8] text-gray-700 border-b-2">
                     WebEscalation
                   </span>
                   ?
@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
 
               {/* Features Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-cyan-500 transition-all duration-1000 delay-500">
+                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-[#0092b8] transition-all duration-1000 delay-500">
                   <h3 className="font-bold text-slate-800 text-base sm:text-lg mb-2">
                     Full-Stack Development
                   </h3>
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
                     systems, we deliver complete web solutions.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-cyan-500 transition-all duration-1000 delay-700">
+                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-[#0092b8] transition-all duration-1000 delay-700">
                   <h3 className="font-bold text-slate-800 text-base sm:text-lg mb-2">
                     Performance-Driven Design
                   </h3>
@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
                     user experience.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-cyan-500 transition-all duration-1000 delay-900">
+                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-[#0092b8] transition-all duration-1000 delay-900">
                   <h3 className="font-bold text-slate-800 text-base sm:text-lg mb-2">
                     Industry Expertise
                   </h3>
@@ -68,7 +68,7 @@ const WhyChooseUs = () => {
                     understand what works in your market.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-cyan-500 transition-all duration-1000 delay-1100">
+                <div className="bg-white rounded-xl shadow-md p-4 sm:p-5 border-l-4 border-[#0092b8] transition-all duration-1000 delay-1100">
                   <h3 className="font-bold text-slate-800 text-base sm:text-lg mb-2">
                     Ongoing Support
                   </h3>
