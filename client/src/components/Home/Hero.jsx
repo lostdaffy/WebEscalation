@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-white px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto py-10 space-y-12">
+    <section className="min-h-screen bg-white ">
+      <div className="max-w-7xl mx-auto py-10 space-y-12 px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row gap-8">
           {/* Heading */}

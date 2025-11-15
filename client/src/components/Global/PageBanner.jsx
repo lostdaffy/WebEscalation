@@ -23,13 +23,12 @@ const PageBanner = ({ heading, subheading, description }) => {
 
   return (
     <section
-      className="relative"
+      className="relative h-[20vh] sm:h-[60vh]"
       style={{
         background: `url(${"/images/406830.jpg"})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: "60vh",
       }}
     >
       {/* Dark Overlay */}

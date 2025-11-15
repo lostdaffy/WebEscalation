@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [location]);
 
   const navItems = [
-    { name: "Welcome", to: "/home" },
+    { name: "Home", to: "/home" },
     { name: "Services", to: "/services" },
     { name: "About", to: "/about" },
     { name: "Industries", to: "/industries" },
@@ -31,12 +31,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Add Remix Icons CDN to your HTML head */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
-          : 'bg-white'
-      }`}>
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#dedede]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 sm:h-20 items-center justify-between">
             {/* Logo */}
